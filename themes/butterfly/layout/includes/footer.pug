@@ -1,0 +1,10 @@
+#footer-wrap
+  if theme.footer.owner.enable
+    - var now = new Date()
+    - var nowYear = now.getFullYear()
+    if theme.footer.owner.since && theme.footer.owner.since != nowYear
+      .copyright!= `&copy;${theme.footer.owner.since} - ${nowYear} ${config.author}`
+    else
+      .copyright!= `&copy;${nowYear} ${config.author}`
+  if theme.footer.custom_text
+    .footer_custom_text!=`${theme.footer.custom_text}`
