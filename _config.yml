@@ -2,7 +2,7 @@
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
-# Site
+# 站点配置
 title: rumble's blog
 subtitle: ''
 description: ''
@@ -104,7 +104,7 @@ theme: butterfly
 deploy:
   type: ''
 
-# Live2D
+# Live2D设置
 ## https://github.com/xiazeyu/live2d-widget.js
 ## https://l2dwidget.js.org/docs/class/src/index.js~L2Dwidget.html#instance-method-init
 live2d:
