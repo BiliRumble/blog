@@ -2,12 +2,13 @@
 # see https://butterfly.js.org/posts/4aa8abbe/##導航欄設置-Navigation-bar-settings
 # --------------------------------------
 
+# Nav设置
 nav:
   logo: # image
   display_title: true
   fixed: false # fixed navigation bar
 
-# Menu 目錄
+# Menu 目录
 menu:
   首页: / || fas fa-home
   时间轴: /archives/ || fas fa-archive
@@ -34,6 +35,7 @@ code_word_wrap: true
 # formal:
 #   icon: link || the description || color
 social:
+  fas fa-home-alt: https://www.rumble.top || Home || '#24292e'
   fab fa-github: https://github.com/bilirumble || Github || '#24292e'
   fas fa-envelope: mailto:bilirumble@outlook.com || Email || '#24292e'
 
@@ -41,7 +43,7 @@ social:
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: /img/favicon.png
+favicon: /img/favicon.svg
 
 # Avatar (頭像)
 avatar:
@@ -95,7 +97,7 @@ error_img:
   flink: /img/friend_404.gif
   post_page: /img/404.jpg
 
-# A simple 404 page
+# 404页面
 error_404:
   enable: true
   subtitle: 'Page Not Found'
@@ -203,7 +205,7 @@ noticeOutdate:
   message_prev: 未过时的文章。
   message_next: 该文章可能已过时!
 
-# Footer Settings
+# Footer 设置
 # --------------------------------------
 footer:
   owner:
@@ -211,9 +213,8 @@ footer:
     since: 2019
   custom_text:
 
-# aside (側邊欄)
+# aside (侧栏设置)
 # --------------------------------------
-
 aside:
   enable: true
   hide: false
@@ -224,6 +225,7 @@ aside:
     archive: true
     tag: true
     category: true
+  # Author栏
   card_author:
     enable: true
     description: 兴趣使然
@@ -232,9 +234,11 @@ aside:
       icon: fab fa-github
       text: Follow Me
       link: https://github.com/xxxxxx
+  # 公告栏
   card_announcement:
     enable: true
     content: 这里是公告
+  # 博客相关
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
@@ -274,6 +278,7 @@ busuanzi:
 
 # Time difference between publish date and now (網頁運行時間)
 # Formal: Month/Day/Year Time or Year/Month/Day Time
+# 运行时间
 runtimeshow:
   enable: true
   publish_date: 2019/1/1 00:00:00
