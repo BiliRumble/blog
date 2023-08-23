@@ -43,7 +43,7 @@ social:
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: /img/favicon.svg
+favicon: /img/favicon.ico
 
 # Avatar (頭像)
 avatar:
