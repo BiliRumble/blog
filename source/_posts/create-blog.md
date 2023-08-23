@@ -1,6 +1,7 @@
 ---
 title: Hexo 部署
 date: 2019-2-6 12:00:00
+update: 2023-8-24 00:00:00
 ---
 
 # 创建 Hexo Blog.
