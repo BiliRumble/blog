@@ -1,7 +1,8 @@
 ---
-title: express+typescript 使用jwt验证身份
+title: express+ts 使用jwt验证身份
 date: 2023-9-1 12:00:00
 update: 2023-9-10 00:00:00
+tags: express+ts 开发
 ---
 
 # JWT简介
@@ -30,78 +31,89 @@ JWT具有以下优点：
 上述命令会安装 JSON Web Token 的依赖，以及 TypeScript 的类型定义文件。
 
 ## 创建一个JWT工具
- ```typescript
- // JwtTools
- /// <reference path="../custom.d.ts" /> //引入 custom.d.ts
- import express, {Request,Response,Application} from 'express';
- import jwt from 'jsonwebtoken';
- import config  from '../config';
+```typescript
+// JwtTools
+/// <reference path="../custom.d.ts" /> //引入 custom.d.ts
+import express, {Request,Response,Application} from 'express';
+import jwt from 'jsonwebtoken';
+import config  from '../config';
 
- const secretKey = "your-key"; //你的密钥
+const secretKey = "your-key"; //你的密钥
 
- export function generateToken(payload: any): string { // 创建Token
-   return jwt.sign(
-    payload,
-    secretKey,
-    {
-        expiresIn: '1h' //密钥时间限制
-    }
-    );
- }
-
- export function authenticateToken(req: Request, res: Response, next: Function) { // 验证Token
-   const authHeader = req.headers['authorization'];
-   const token = authHeader && authHeader.split(' ')[1];
-
-   if (!token) {
-     return res.send("权限验证未通过/未登录。").status(401);
+export function generateToken(payload: any): string { // 创建Token
+  return jwt.sign(
+   payload,
+   secretKey,
+   {
+       expiresIn: '1h' //密钥时间限制
    }
- 
-   jwt.verify(
-    token,
-    secretKey,
-    (err, decoded) => {
-     if (err) {
-       console.error(`出现错误: ${err}`);
-       res.send("服务器错误。").status(500);
-       return;
-     }
-     req.user = decoded; // 定义 req.user
-     next();
-    }
    );
- }
- ```
+}
+
+export function authenticateToken(req: Request, res: Response, next: Function) { // 验证Token
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (!token) {
+    return res.send("权限验证未通过/未登录。").status(401);
+  }
+ 
+  jwt.verify(
+   token,
+   secretKey,
+   (err, decoded) => {
+    if (err) {
+      console.error(`出现错误: ${err}`);
+      res.send("服务器错误。").status(500);
+      return;
+    }
+    req.user = decoded; // 定义 req.user
+    next();
+   }
+  );
+}
+```
 在这个例子中，我们将 JWT 密钥设置为 "your-key"。generateToken：生成Token,并返回; authenticateToken：它从请求头中获取 JWT 令牌，使用 jsonwebtoken 库的 verify 方法验证令牌，并将解码后的用户信息存储在 req.user 中。如果令牌无效，将返回 401 错误。
 
 ## 使用JWT工具
- ```typescript
- // app.js
- /// <reference path="../custom.d.ts" /> //引入 custom.d.ts
- import { authenticateToken, generateToken } from './JwtTools'; // 引入方法,不要照抄
+```typescript
+// app.js
+/// <reference path="../custom.d.ts" /> //引入 custom.d.ts
+import { authenticateToken, generateToken } from './JwtTools'; // 引入方法,不要照抄
 
- app.get('/', (req: Request, res: Response) => { // 生成并下发Token
-    const payload = { 
-        "name": "test" // 需要携带的内容，可以是任何类型的
-    };
-    const token = generateToken(payload); // token
-    res.send(`${token}`).status(200); // 发送token
+app.get('/', (req: Request, res: Response) => { // 生成并下发Token
+   const payload = { 
+       "name": "test" // 需要携带的内容，可以是任何类型的
+   };
+   const token = generateToken(payload); // token
+   res.send(`${token}`).status(200); // 发送token
+});
+
+app.get("/protected", authenticateToken, (req: Request, res: Response) => { // 保护的路由
+    res.json({ message: "You are authorized!", user: req.user });
  });
-
- app.get("/protected", authenticateToken, (req: Request, res: Response) => { // 保护的路由
-     res.json({ message: "You are authorized!", user: req.user });
-  });
- ```
+```
 在这个例子中，我们创建了一个 生成和下发Token的路由，还有一个受保护的路由 /protected，它需要进行身份验证。在路由处理程序中，我们可以访问 req.user 来获取解码后的用户信息，并返回相应的数据。
 
-这是在 TypeScript 和 Express 应用中使用 JWT 进行身份验证的基本步骤。你可以根据需要进行进一步的自定义和配置。
+## 创建自定义类型: req.user
+```typescript
+// custom.d.ts
+declare namespace Express {
+   interface Request {
+     user?: any;
+   }
+}
+```
+我们在这里创建了一个文件扩展声明。
+### *.d.ts 简介
+.d.ts 是 TypeScript 中的声明文件的文件扩展名，它用于描述 JavaScript 库、框架或模块的类型信息。声明文件通常用于提供类型定义，以便在使用 JavaScript 库时能够获得更好的类型检查和智能提示。
 
-# 创建自定义类型: req.user
- ```typescript
- // custom.d.ts
- declare namespace Express {
-    interface Request {
-      user?: any;
-    }
- }
- ```
+当使用第三方 JavaScript 库或模块时，如果没有相应的声明文件，TypeScript 可能无法正确推断出库的类型，导致类型检查错误或缺少智能提示。为了解决这个问题，可以创建一个 .d.ts 文件来描述库的类型信息。
+
+一个 .d.ts 文件通常包含以下内容：
+
+导入语句（如果需要）：如果你的声明文件依赖其他的类型，你可以使用 import 或 /// <reference types="..." /> 导入它们。
+
+声明模块或全局变量：使用 declare module 或 declare global 关键字来声明模块或全局变量，并指定它们的类型。
+
+导出类型声明：使用 export 关键字来导出类型声明，包括接口、类、类型别名、枚举等。
