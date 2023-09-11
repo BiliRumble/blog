@@ -1,6 +1,6 @@
 ---
 title: express+ts 使用jwt验证身份
-date: 2023-9-1 12:00:00
+date: 2023-9-2 12:00:00
 update: 2023-9-10 00:00:00
 tags: express+ts 开发
 ---

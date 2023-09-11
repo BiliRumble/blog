@@ -1,7 +1,7 @@
 ---
 title: 创建express+ts项目
 date: 2023-9-1 12:00:00
-update: 2023-9-9 00:00:00
+update: 2023-9-2 00:00:00
 tags: express+ts 开发
 ---
 
