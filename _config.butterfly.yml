@@ -445,7 +445,7 @@ gitalk:
   repo: bilirumble/blog
   owner: bilirumble
   admin: starry-r
-  option:
+  option: 
 
 # valine
 # https://valine.js.org
