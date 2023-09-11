@@ -366,13 +366,13 @@ algolia_search:
 
 # Local search
 local_search:
-  enable: false
+  enable: true
   # Preload the search data when the page loads.
-  preload: false
+  preload: true
   # Show top n results per article, show all results by setting to -1
   top_n_per_article: 1
   # Unescape html strings to the readable one.
-  unescape: false
+  unescape: true
   CDN:
 
 # Docsearch
@@ -410,7 +410,7 @@ addtoany:
 comments:
   # Up to two comments system, the first will be shown as default
   # Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk
-  use: #Valine,Disqus
+  use: gitalk #Valine,Disqus
   text: true # Display the comment name next to the button
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
   # If you set it to true, the comment count will be invalid
@@ -440,11 +440,11 @@ livere:
 # gitalk
 # https://github.com/gitalk/gitalk
 gitalk:
-  client_id:
-  client_secret:
-  repo:
-  owner:
-  admin:
+  client_id: f7e15eac4ef4ca140772
+  client_secret: 9c7d23e7d62427138bdf3e3f22f5701207dc069f
+  repo: bilirumble/blog
+  owner: bilirumble
+  admin: starry-r
   option:
 
 # valine
