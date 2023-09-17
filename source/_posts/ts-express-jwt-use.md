@@ -1,7 +1,7 @@
 ---
 title: express+ts 使用jwt验证身份
 date: 2023-9-2 12:00:00
-update: 2023-9-10 00:00:00
+update: 2023-9-17 21:00:00
 tags: [nodejs, typescript, express, jwt]
 categories: [开发]
 ---
