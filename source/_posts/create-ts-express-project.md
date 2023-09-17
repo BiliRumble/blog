@@ -1,7 +1,7 @@
 ---
 title: 创建express+ts项目
 date: 2023-9-1 12:00:00
-update: 2023-9-2 00:00:00
+update: 2023-9-17 20:16:00
 tags: express+ts 开发
 ---
 
@@ -10,6 +10,9 @@ TypeScript 和 Express 是一对非常强大的组合，可以帮助你构建可
 > Express 是一个简洁、灵活的 Node.js Web 应用框架，用于构建 Web 应用和 API，提供了一套简单易用的 API，使开发者能够快速创建基于 Node.js 的 Web 应用，具有中间件架构，允许开发者通过添加中间件来处理请求和响应，提供了路由功能，可以根据不同的 URL 和 HTTP 方法来定义不同的处理程序，支持模板引擎，用于动态生成 HTML 页面,是非常流行和广泛使用的 Web 框架，许多大型项目和企业都在使用它。
 
 > TypeScript 是一种由微软开发和维护的开源编程语言，它是 JavaScript 的超集， 扩展了 JavaScript，添加了静态类型检查和更多的面向对象编程特性，以提供更好的开发工具支持和代码可维护性，通过在编译时进行静态类型检查，可以帮助开发者捕获潜在的错误，并提供更好的代码提示和自动完成功能，代码可以被编译为普通的 JavaScript 代码，然后在任何支持 JavaScript 的环境中运行,与 JavaScript 代码可以无缝地集成，可以使用现有的 JavaScript 库和框架，并逐步将代码迁移到 TypeScript。
+
+## 开始之前
+此文章内容要求你掌握了关于TypeScript的基础知识和对ExpressAPI的基本知识。
 
 # 搭建
 下面是使用 TypeScript 和 Express 来创建一个简单的 Web 应用的步骤：
