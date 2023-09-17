@@ -1,7 +1,7 @@
 ---
 title: Express+TypeScript 使用sqlit作为数据库
 date: 2023-9-11 12:00:00
-update: 2023-9-17 00:00:00
+update: 2023-9-17 21:00:00
 tags: [nodejs, typescript, express, sqlite]
 categories: [开发]
 ---
