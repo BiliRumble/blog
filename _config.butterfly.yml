@@ -35,7 +35,7 @@ code_word_wrap: true
 # formal:
 #   icon: link || the description || color
 social:
-  fas fa-home-alt: https://www.rumble.top || Home || '#24292e'
+  fas fa-home-alt: https://www.bilirumble.top || Home || '#24292e'
   fab fa-github: https://github.com/bilirumble || Github || '#24292e'
   fas fa-envelope: mailto:bilirumble@outlook.com || Email || '#24292e'
 
@@ -230,10 +230,10 @@ aside:
     enable: true
     description: 兴趣使然
     button:
-      enable: false
+      enable: true
       icon: fab fa-github
       text: Follow Me
-      link: https://github.com/xxxxxx
+      link: https://github.com/bilirumble
   # 公告栏
   card_announcement:
     enable: true
