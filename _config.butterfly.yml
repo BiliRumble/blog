@@ -35,7 +35,7 @@ code_word_wrap: true
 # formal:
 #   icon: link || the description || color
 social:
-  fas fa-home-alt: https://www.bilirumble.top || Home || '#24292e'
+  fas fa-home-alt: https://www.rumbl.top || Home || '#24292e'
   fab fa-github: https://github.com/bilirumble || Github || '#24292e'
   fas fa-envelope: mailto:bilirumble@outlook.com || Email || '#24292e'
 
@@ -440,12 +440,16 @@ livere:
 # gitalk
 # https://github.com/gitalk/gitalk
 gitalk:
-  client_id: f7e15eac4ef4ca140772
-  client_secret: 9c7d23e7d62427138bdf3e3f22f5701207dc069f
+  client_id: Ov23liV1RLrudCbKHLOi
+  client_secret: 43ce3079cad2481dd247d4619a90b674538e5fe7
   repo: bilirumble/blog
   owner: bilirumble
   admin: starry-r
-  option: 
+  language: zh-CN
+  per_page: 25
+  distractionFreeMode: false
+  pagerDirection: last
+  createIssueManually: false
 
 # valine
 # https://valine.js.org
@@ -471,7 +475,7 @@ waline:
 utterances:
   repo:
   # Issue Mapping: pathname/url/title/og:title
-  issue_term: pathname
+  issue_term: url
   # Theme: github-light/github-dark/github-dark-orange/icy-dark/dark-blue/photon-dark
   light_theme: github-light
   dark_theme: photon-dark
@@ -585,7 +589,7 @@ microsoft_clarity:
 # Google Adsense (谷歌廣告)
 google_adsense:
   enable: false
-  auto_ads: true
+  auto_ads: false
   js: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
   client:
   enable_page_level_ads: true
@@ -855,14 +859,14 @@ aplayerInject:
 # position 彈窗位置
 # 可選 top-left / top-center / top-right / bottom-left / bottom-center / bottom-right
 snackbar:
-  enable: false
-  position: bottom-left
+  enable: true
+  position: top-center
   bg_light: '#49b1f5' # The background color of Toast Notification in light mode
   bg_dark: '#1f1f1f' # The background color of Toast Notification in dark mode
 
 # https://instant.page/
 # prefetch (預加載)
-instantpage: false
+instantpage: true
 
 # https://github.com/vinta/pangu.js
 # Insert a space between Chinese character and English character (中英文之間添加空格)
@@ -876,7 +880,7 @@ lazyload:
   enable: true
   field: site # site/post
   placeholder:
-  blur: false
+  blur: true
 
 # PWA
 # See https://github.com/JLHwung/hexo-offline
