@@ -12,8 +12,10 @@
     "version": "6.3.0"
   },
   "dependencies": {
+    "blog": "file:",
     "gitalk": "^1.8.0",
     "hexo": "^6.3.0",
+    "hexo-abbrlink": "^2.2.1",
     "hexo-browsersync": "^0.3.0",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",
