@@ -16,6 +16,7 @@ if hexo-config('darkmode.enable') || hexo-config('display_mode') == 'dark'
     --tab-button-active-bg: #121212
     --card-bg: #121212
     --sidebar-bg: #121212
+    --sidebar-menu-bg: lighten(#121212, 5)
     --btn-hover-color: lighten(#121212, 40)
     --btn-color: alpha(#FFFFFF, .7)
     --btn-bg: lighten(#121212, 5)
@@ -28,15 +29,7 @@ if hexo-config('darkmode.enable') || hexo-config('display_mode') == 'dark'
     --blockquote-bg: lighten(#121212, 10)
     --reward-pop: lighten(#121212, 10)
     --toc-link-color: alpha(#FFFFFF, .6)
-    --hl-color: alpha(#FFFFFF, .7)
-    --hl-bg: lighten(#121212, 2)
-    --hltools-bg: lighten(#121212, 3)
-    --hltools-color: #90a4ae
-    --hlnumber-bg: lighten(#121212, 2)
-    --hlnumber-color: alpha(#FFFFFF, .4)
-    --hlscrollbar-bg: lighten(#121212, 5)
-    --hlexpand-bg: linear-gradient(180deg, rgba(lighten(#121212, 2), .6), rgba(lighten(#121212, 2), .9))
-    --scrollbar-color: lighten(#121212, 5)
+    --scrollbar-color: lighten(#121212, 25)
     --timeline-bg: lighten(#121212, 5)
     --zoom-bg: #121212
     --mark-bg: alpha($dark-black, .6)
@@ -48,7 +41,7 @@ if hexo-config('darkmode.enable') || hexo-config('display_mode') == 'dark'
       background-color: alpha($dark-black, .7)
       content: ''
 
-    #article-container
+    .container
       code
         background: #2c2c2c
 
@@ -78,11 +71,11 @@ if hexo-config('darkmode.enable') || hexo-config('display_mode') == 'dark'
         box-shadow: 0 5px 6px -5px rgba(133, 133, 133, 0)
 
     #post-comment
-      #comment-switch
+      .comment-switch
         if hexo-config('comments.text')
           background: #2c2c2c !important
 
-        .switch-btn
+        #switch-btn
           filter: brightness(.8)
 
     // note
@@ -94,9 +87,9 @@ if hexo-config('darkmode.enable') || hexo-config('display_mode') == 'dark'
     .hide-button,
     .btn-beautify,
     .hl-label,
-    .post-outdate-notice,
+    #post-outdate-notice,
     .error-img,
-    #article-container iframe,
+    .container iframe,
     .gist,
     .ads-wrap
       filter: brightness(.8)
@@ -148,3 +141,20 @@ if hexo-config('darkmode.enable') || hexo-config('display_mode') == 'dark'
     #card-toc
       +maxWidth900()
         background: lighten(#121212, 5)
+
+    // artalk
+    .artalk.atk-dark-mode,
+    .atk-layer-wrap.atk-dark-mode
+      --at-color-font: alpha(#FFFFFF, .7)
+      --at-color-meta: alpha(#FFFFFF, .7)
+      --at-color-grey: alpha(#FFFFFF, .7)
+    
+    .atk-send-btn,
+    .atk-badge
+      color: alpha(#FFFFFF, .7) !important
+
+    // waline
+    #waline-wrap
+      --waline-color: alpha(#FFFFFF, .7)
+      --waline-dark-grey: alpha(#FFFFFF, .7)
+      --waline-info-color: alpha(#FFFFFF, .5)

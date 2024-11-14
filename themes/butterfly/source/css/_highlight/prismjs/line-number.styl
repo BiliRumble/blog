@@ -1,4 +1,4 @@
-#article-container
+.container
   pre[class*='language-']
     &.line-numbers
       position: relative
@@ -10,7 +10,7 @@
         position: relative
         line-height: $line-height-code-block
 
-        if hexo-config('code_word_wrap')
+        if hexo-config('code_blocks.word_wrap')
           white-space: pre-wrap
         else
           white-space: inherit
@@ -27,6 +27,7 @@
         font-size: 100%
         pointer-events: none
         user-select: none
+        -webkit-user-select: none
 
         & > span
           display: block

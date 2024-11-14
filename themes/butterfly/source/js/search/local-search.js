@@ -150,16 +150,16 @@ class LocalSearch {
       url.searchParams.append('highlight', keywords.join(' '))
 
       if (slicesOfTitle.length !== 0) {
-        resultItem += `<div class="local-search-hit-item"><a href="${url.href}"><span class="search-result-title">${this.highlightKeyword(title, slicesOfTitle[0])}</span>`
+        resultItem += `<li class="local-search-hit-item"><a href="${url.href}"><span class="search-result-title">${this.highlightKeyword(title, slicesOfTitle[0])}</span>`
       } else {
-        resultItem += `<div class="local-search-hit-item"><a href="${url.href}"><span class="search-result-title">${title}</span>`
+        resultItem += `<li class="local-search-hit-item"><a href="${url.href}"><span class="search-result-title">${title}</span>`
       }
 
       slicesOfContent.forEach(slice => {
         resultItem += `<p class="search-result">${this.highlightKeyword(content, slice)}...</p></a>`
       })
 
-      resultItem += '</div>'
+      resultItem += '</li>'
       resultItems.push({
         item: resultItem,
         id: resultItems.length,
@@ -246,10 +246,12 @@ window.addEventListener('load', () => {
   const input = document.querySelector('#local-search-input input')
   const statsItem = document.getElementById('local-search-stats-wrap')
   const $loadingStatus = document.getElementById('loading-status')
+  const isXml = !path.endsWith('json')
 
   const inputEventFunction = () => {
     if (!localSearch.isfetched) return
-    const searchText = input.value.trim().toLowerCase()
+    let searchText = input.value.trim().toLowerCase()
+    isXml && (searchText = searchText.replace(/</g, '&lt;').replace(/>/g, '&gt;'))
     if (searchText !== '') $loadingStatus.innerHTML = '<i class="fas fa-spinner fa-pulse"></i>'
     const keywords = searchText.split(/[-\s]+/)
     const container = document.getElementById('local-search-results')
@@ -259,11 +261,14 @@ window.addEventListener('load', () => {
       resultItems = localSearch.getResultItems(keywords)
     }
     if (keywords.length === 1 && keywords[0] === '') {
-      container.classList.add('no-result')
       container.textContent = ''
+      statsItem.textContent = ''
     } else if (resultItems.length === 0) {
       container.textContent = ''
-      statsItem.innerHTML = `<div class="search-result-stats">${languages.hits_empty.replace(/\$\{query}/, searchText)}</div>`
+      const statsDiv = document.createElement('div')
+      statsDiv.className = 'search-result-stats'
+      statsDiv.textContent = languages.hits_empty.replace(/\$\{query}/, searchText)
+      statsItem.innerHTML = statsDiv.outerHTML
     } else {
       resultItems.sort((left, right) => {
         if (left.includedCount !== right.includedCount) {
@@ -276,8 +281,7 @@ window.addEventListener('load', () => {
 
       const stats = languages.hits_stats.replace(/\$\{hits}/, resultItems.length)
 
-      container.classList.remove('no-result')
-      container.innerHTML = `<div class="search-result-list">${resultItems.map(result => result.item).join('')}</div>`
+      container.innerHTML = `<ol class="search-result-list">${resultItems.map(result => result.item).join('')}</ol>`
       statsItem.innerHTML = `<hr><div class="search-result-stats">${stats}</div>`
       window.pjax && window.pjax.refresh(container)
     }
@@ -297,9 +301,7 @@ window.addEventListener('load', () => {
   }
 
   const openSearch = () => {
-    const bodyStyle = document.body.style
-    bodyStyle.width = '100%'
-    bodyStyle.overflow = 'hidden'
+    btf.overflowPaddingR.add()
     btf.animateIn($searchMask, 'to_show 0.5s')
     btf.animateIn($searchDialog, 'titleScale 0.5s')
     setTimeout(() => { input.focus() }, 300)
@@ -321,16 +323,14 @@ window.addEventListener('load', () => {
   }
 
   const closeSearch = () => {
-    const bodyStyle = document.body.style
-    bodyStyle.width = ''
-    bodyStyle.overflow = ''
+    btf.overflowPaddingR.remove()
     btf.animateOut($searchDialog, 'search_close .5s')
     btf.animateOut($searchMask, 'to_hide 0.5s')
     window.removeEventListener('resize', fixSafariHeight)
   }
 
   const searchClickFn = () => {
-    document.querySelector('#search-button > .search').addEventListener('click', openSearch)
+    btf.addEventListenerPjax(document.querySelector('#search-button > .search'), 'click', openSearch)
   }
 
   const searchFnOnce = () => {

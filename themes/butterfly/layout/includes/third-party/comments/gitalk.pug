@@ -1,41 +1,64 @@
+- const { client_id, client_secret, repo, owner, admin, option } = theme.gitalk
+
 script.
-  function loadGitalk () {
-    function initGitalk () {
-      var gitalk = new Gitalk(Object.assign({
-        clientID: '!{theme.gitalk.client_id}',
-        clientSecret: '!{theme.gitalk.client_secret}',
-        repo: '!{theme.gitalk.repo}',
-        owner: '!{theme.gitalk.owner}',
-        admin: ['!{theme.gitalk.admin}'],
-        id: '!{md5(page.path)}',
-        updateCountCallback: commentCount
-      },!{JSON.stringify(theme.gitalk.option)}))
+  (() => {
+    const isShuoshuo = GLOBAL_CONFIG_SITE.isShuoshuo
+    const option = !{JSON.stringify(option)}
+
+    const commentCount = n => {
+      const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+      if (isCommentCount) {
+        isCommentCount.textContent= n
+      }
+    }
+
+    const initGitalk = (el, path) => {
+      if (isShuoshuo) {
+        window.shuoshuoComment.destroyGitalk = () => {
+          if (el.children.length) {
+            el.innerHTML = ''
+            el.classList.add('no-comment')
+          }
+        }
+      }
+
+      const gitalk = new Gitalk({
+        clientID: '!{client_id}',
+        clientSecret: '!{client_secret}',
+        repo: '!{repo}',
+        owner: '!{owner}',
+        admin: ['!{admin}'],
+        updateCountCallback: commentCount,
+        ...option,
+        id: isShuoshuo ? path : (option && option.id) || '!{md5(page.path)}'
+      })
 
       gitalk.render('gitalk-container')
     }
 
-    if (typeof Gitalk === 'function') initGitalk()
-    else {
-      getCSS('!{url_for(theme.asset.gitalk_css)}')
-      getScript('!{url_for(theme.asset.gitalk)}').then(initGitalk)
+    const loadGitalk = async(el, path) => {
+      if (typeof Gitalk === 'function') initGitalk(el, path)
+      else {
+        await btf.getCSS('!{url_for(theme.asset.gitalk_css)}')
+        await btf.getScript('!{url_for(theme.asset.gitalk)}')
+        initGitalk(el, path)
+      }
     }
-  }
-  
-  function commentCount(n){
-    let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
-    if (isCommentCount) {
-      isCommentCount.textContent= n
-    }
-  }
 
-  if ('!{theme.comments.use[0]}' === 'Gitalk' || !!{theme.comments.lazyload}) {
-    if (!{theme.comments.lazyload}) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
-    else loadGitalk()
-  } else {
-    function loadOtherComment () {
-      loadGitalk()
+    if (isShuoshuo) {
+      '!{theme.comments.use[0]}' === 'Gitalk'
+        ? window.shuoshuoComment = { loadComment: loadGitalk }
+        : window.loadOtherComment = loadGitalk
+      return
     }
-  }
+
+    if ('!{theme.comments.use[0]}' === 'Gitalk' || !!{theme.comments.lazyload}) {
+      if (!{theme.comments.lazyload}) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+      else loadGitalk()
+    } else {
+      window.loadOtherComment = loadGitalk
+    }
+  })()
 
 
 

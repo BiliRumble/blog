@@ -450,6 +450,7 @@ gitalk:
   distractionFreeMode: false
   pagerDirection: last
   createIssueManually: false
+  proxy: https://ca.rumbl.top/https://github.com/login/oauth/access_token
 
 # valine
 # https://valine.js.org

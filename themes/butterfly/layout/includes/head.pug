@@ -40,13 +40,15 @@ if (theme.pwa && theme.pwa.enable)
 
 //- main css
 link(rel='stylesheet', href=url_for(theme.asset.main_css))
-link(rel='stylesheet', href=url_for(theme.asset.fontawesome) media="print" onload="this.media='all'")
+link(rel='stylesheet', href=url_for(theme.asset.fontawesome))
 
 if (theme.snackbar && theme.snackbar.enable)
   link(rel='stylesheet', href=url_for(theme.asset.snackbar_css) media="print" onload="this.media='all'")
 
-if theme.fancybox
+if theme.lightbox === 'fancybox'
   link(rel='stylesheet' href=url_for(theme.asset.fancybox_css) media="print" onload="this.media='all'")
+
+!=fragment_cache('injectHeadJs', function(){return inject_head_js()})
 
 //- google_adsense
 !=partial('includes/head/google_adsense', {}, {cache: true})
@@ -55,15 +57,12 @@ if theme.fancybox
 !=partial('includes/head/analytics', {}, {cache: true})
 
 //- font
-if theme.blog_title_font &&　theme.blog_title_font.font_link
+if theme.blog_title_font && theme.blog_title_font.font_link
   link(rel='stylesheet' href=url_for(theme.blog_title_font.font_link) media="print" onload="this.media='all'")
 
 //- global config
 !=partial('includes/head/config', {}, {cache: true})
 
 include ./head/config_site.pug
-include ./head/noscript.pug
-
-!=fragment_cache('injectHeadJs', function(){return inject_head_js()})
 
 !=fragment_cache('injectHead', function(){return injectHtml(theme.inject.head)})
