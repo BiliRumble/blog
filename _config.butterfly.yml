@@ -442,7 +442,7 @@ livere:
 gitalk:
   client_id: Ov23liV1RLrudCbKHLOi
   client_secret: 43ce3079cad2481dd247d4619a90b674538e5fe7
-  repo: bilirumble/blog
+  repo: blog
   owner: bilirumble
   admin: starry-r
   language: zh-CN
