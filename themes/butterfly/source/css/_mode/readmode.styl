@@ -37,11 +37,11 @@ if hexo-config('readmode')
       z-index: 100
       width: 40px
       height: 40px
-      border-radius: 8px
       background: var(--exit-btn-bg)
       color: var(--exit-btn-color)
       font-size: 16px
       transition: background .3s
+      addBorderRadius(8)
 
       +maxWidth768()
         top: initial
@@ -77,13 +77,13 @@ if hexo-config('readmode')
     #footer,
     #post > *:not(#post-info):not(.post-content),
     #nav,
-    .post-outdate-notice,
+    #post-outdate-notice,
     #web_bg,
     #rightside,
     .not-top-img
       display: none !important
 
-    #article-container
+    .container
       a
         color: #99a9bf
 
@@ -145,18 +145,7 @@ if hexo-config('readmode')
           background: transparent
 
           > .tab
-            border-bottom: 0
-
-            button
-              border-top: none !important
-              background: transparent
-
-              &:hover
-                background: none !important
-
-            &.active
-              button
-                text-decoration: underline
+            border-top: none !important
 
         > .tab-contents .tab-item-content.active
           animation: none

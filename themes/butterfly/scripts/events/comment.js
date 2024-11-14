@@ -6,9 +6,19 @@ hexo.extend.filter.register('before_generate', () => {
   const themeConfig = hexo.theme.config
   let { use } = themeConfig.comments
   if (!use) return
-  if (typeof use === 'string') {
-    use = use.split(',')
+
+  // Make sure use is an array
+  use = Array.isArray(use) ? use : use.split(',')
+
+  // Capitalize the first letter of each comment name
+  use = use.map(item =>
+    item.trim().toLowerCase().replace(/\b[a-z]/g, s => s.toUpperCase())
+  )
+
+  // Disqus and Disqusjs conflict, only keep the first one
+  if (use.includes('Disqus') && use.includes('Disqusjs')) {
+    use = [use[0]]
   }
-  const newArray = use.map(item => item.toLowerCase().replace(/\b[a-z]/g, s => s.toUpperCase()))
-  themeConfig.comments.use = newArray
+
+  themeConfig.comments.use = use
 })
