@@ -442,6 +442,7 @@ bindings@^1.5.0:
     hexo-renderer-stylus "^2.1.0"
     hexo-server "^3.0.0"
     hexo-theme-landscape "^1.0.0"
+    js-yaml "^4.1.0"
     social-share.js "^1.0.16"
 
 bluebird@^3.2.2, bluebird@^3.5.1, bluebird@^3.5.2, bluebird@^3.5.3, bluebird@^3.5.5, bluebird@^3.7.2:

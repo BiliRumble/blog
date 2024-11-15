@@ -440,8 +440,8 @@ livere:
 # gitalk
 # https://github.com/gitalk/gitalk
 gitalk:
-  client_id: Ov23liV1RLrudCbKHLOi
-  client_secret: 43ce3079cad2481dd247d4619a90b674538e5fe7
+  client_id: f7e15eac4ef4ca140772
+  client_secret: secret
   repo: blog
   owner: bilirumble
   admin: bilirumble
@@ -451,6 +451,8 @@ gitalk:
   pagerDirection: last
   createIssueManually: false
   proxy: https://ca.rumbl.top/https://github.com/login/oauth/access_token
+  option:
+    proxy: https://ca.rumbl.top/https://github.com/login/oauth/access_token
 
 # valine
 # https://valine.js.org
