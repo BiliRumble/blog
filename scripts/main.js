@@ -1,7 +1,7 @@
-const { patch_config } = require('./patch_config');
+const { patch } = require('./patch_config');
 
 const main = () => {
-    patch_config();
+    patch();
 }
 
 main();
