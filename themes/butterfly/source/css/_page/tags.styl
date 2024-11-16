@@ -1,4 +1,5 @@
 .tag-cloud
+  margin: 5em 0 3em
   &-list
     a
       display: inline-block
@@ -7,11 +8,33 @@
       line-height: 1.7
       transition: all .3s
       addBorderRadius(5)
+      display: inline-flex;
+      color: var(--font-color) !important;
+      font-size: 1.2em !important;
+      padding: 0.2em 0.5em;
+      background: var(--card-bg)
+      margin: 0.5em 0.5em;
+      border-radius: 12px;
+      -webkit-backface-visibility: hidden;
+      -webkit-transform-style: preserve-3d;
+      border: 1px solid #a1a1af
+      box-shadow: 0 8px 16px -4px #2c2d300c
+      align-items: center;
 
       &:hover
         background: var(--btn-bg) !important
         box-shadow: 2px 2px 6px rgba(0, 0, 0, .2)
         color: var(--btn-color) !important
+
+      &:before
+        color: var(--font-color) !important;
+        cursor: pointer;
+        content: "\f02c" !important;
+        font-family: "Font Awesome 6 Free" !important;
+        font-weight: 900 !important;
+        opacity: 0.4;
+        padding-top: 2px;
+        padding-right: 2px;
 
       +maxWidth768()
         zoom: .85

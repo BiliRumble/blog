@@ -1,19 +1,22 @@
 nav:
   logo: null
   display_title: true
-  fixed: true
+  fixed: false
 menu:
   首页: / || fas fa-home ||
   时间轴: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
   友链: /link/ || fas fa-link
-highlight_theme: light
-highlight_copy: true
-highlight_lang: true
-highlight_shrink: false
-highlight_height_limit: false
-code_word_wrap: true
+code_blocks:
+  theme: light
+  macStyle: false
+  height_limit: false
+  word_wrap: false
+  copy: true
+  language: true
+  shrink: false
+  fullpage: false
 social:
   fas fa-home-alt: https://www.rumbl.top || Home
   fab fa-github: https://github.com/bilirumble || Github
@@ -23,13 +26,15 @@ avatar:
   img: /assets/images/common/avatar.jpg
   effect: false
 disable_top_img: false
-index_img: https://api.dujin.org/bing/1920.php
 default_top_img: https://api.dujin.org/bing/1920.php
+index_img: https://api.dujin.org/bing/1920.php
 archive_img: null
 tag_img: null
 tag_per_img: null
 category_img: null
 category_per_img: null
+footer_img: false
+background: null
 cover:
   index_enable: true
   aside_enable: true
@@ -41,37 +46,35 @@ error_img:
   flink: /img/friend_404.gif
   post_page: /img/404.jpg
 error_404:
-  enable: true
+  enable: false
   subtitle: Page Not Found
-  background: https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png
+  background: /img/error-page.png
 post_meta:
   page:
-    date_type: both
+    date_type: created
     date_format: date
     categories: true
-    tags: true
+    tags: false
     label: true
   post:
+    position: center
     date_type: both
     date_format: date
     categories: true
     tags: true
     label: true
+index_site_info_top: null
+index_top_img_height: null
+subtitle:
+  enable: true
+  effect: true
+  typed_option: null
+  source: 1
+  sub: null
+index_layout: 3
 index_post_content:
   method: 3
   length: 500
-anchor:
-  button:
-    enable: false
-    always_show: false
-    icon: null
-  auto_update: false
-photofigcaption: false
-copy:
-  enable: true
-  copyright:
-    enable: false
-    limit_count: 50
 toc:
   post: true
   page: false
@@ -87,6 +90,7 @@ post_copyright:
   license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
 reward:
   enable: false
+  text: null
   QR_code: null
 post_edit:
   enable: true
@@ -101,13 +105,14 @@ noticeOutdate:
   style: flat
   limit_day: 365
   position: top
-  message_prev: 未过时的文章。
-  message_next: 该文章可能已过时!
+  message_prev: It has been
+  message_next: days since the last update, the content of the article may be outdated.
 footer:
   owner:
     enable: true
     since: 2019
   custom_text: null
+  copyright: false
 aside:
   enable: true
   hide: false
@@ -120,7 +125,7 @@ aside:
     category: true
   card_author:
     enable: true
-    description: 兴趣使然
+    description: 我是谁，我在哪，我在干什么?
     button:
       enable: true
       icon: fab fa-github
@@ -128,12 +133,18 @@ aside:
       link: https://github.com/bilirumble
   card_announcement:
     enable: true
-    content: 这里是公告
+    content: 呱! 没有公告哦~
   card_recent_post:
     enable: true
     limit: 5
-    sort: date
+    sort: updated
     sort_order: null
+  card_newest_comments:
+    enable: false
+    sort_order: null
+    limit: 6
+    storage: 10
+    avatar: true
   card_categories:
     enable: true
     limit: 8
@@ -142,37 +153,31 @@ aside:
   card_tags:
     enable: true
     limit: 40
-    color: true
+    color: false
     orderby: random
     order: 1
     sort_order: null
   card_archives:
     enable: true
     type: monthly
-    format: MMMM YYYY
+    format: YYYY年MM月
     order: -1
     limit: 8
     sort_order: null
+  card_post_series:
+    enable: true
+    series_title: false
+    orderBy: date
+    order: -1
   card_webinfo:
     enable: true
     post_count: true
     last_push_date: true
     sort_order: null
-busuanzi:
-  site_uv: true
-  site_pv: true
-  page_pv: true
-runtimeshow:
-  enable: true
-  publish_date: 2019/1/1 00:00:00
-newest_comments:
-  enable: true
-  sort_order: null
-  limit: 6
-  storage: 10
-  avatar: true
+    runtime_date: null
+rightside_bottom: null
 translate:
-  enable: true
+  enable: false
   default: 繁
   defaultEncoding: 2
   translateDelay: 0
@@ -182,52 +187,68 @@ readmode: true
 darkmode:
   enable: true
   button: true
-  autoChangeMode: true
+  autoChangeMode: false
   start: '19:00'
-  end: '05:00'
+  end: '5:00'
 rightside_scroll_percent: false
 rightside_item_order:
   enable: false
   hide: null
   show: null
-mathjax:
+anchor:
+  auto_update: true
+  click_to_scroll: true
+photofigcaption: false
+copy:
   enable: true
-  per_page: false
-katex:
-  enable: false
-  per_page: false
-  hide_scrollbar: true
-algolia_search:
-  enable: false
-  hits:
-    per_page: 6
-local_search:
+  copyright:
+    enable: true
+    limit_count: 150
+wordcount:
   enable: true
-  preload: true
-  top_n_per_article: 1
-  unescape: true
-  CDN: null
-docsearch:
-  enable: false
-  appId: null
-  apiKey: null
-  indexName: null
-  option: null
-addThis:
-  enable: false
-  pubid: null
-sharejs:
-  enable: true
-  sites: facebook,twitter,wechat,weibo,qq
-addtoany:
-  enable: false
-  item: facebook,twitter,wechat,sina_weibo,facebook_messenger,email,copy_link
+  post_wordcount: true
+  min2read: true
+  total_wordcount: true
+busuanzi:
+  site_uv: true
+  site_pv: true
+  page_pv: true
+math:
+  use: katex
+  per_page: true
+  hide_scrollbar: false
+  mathjax:
+    enableMenu: true
+    tags: none
+  katex:
+    copy_tex: true
+search:
+  use: local_search
+  placeholder: Search...
+  algolia_search:
+    hitsPerPage: 6
+  local_search:
+    preload: true
+    top_n_per_article: 1
+    unescape: false
+    CDN: null
+  docsearch:
+    appId: null
+    apiKey: null
+    indexName: null
+    option: null
+share:
+  use: sharejs
+  sharejs:
+    sites: facebook,twitter,wechat,weibo,qq
+  addtoany:
+    item: facebook,twitter,wechat,sina_weibo,facebook_messenger,email,copy_link
 comments:
-  use: gitalk
+  use: Gitalk
   text: true
-  lazyload: true
+  lazyload: false
   count: true
-  card_post_count: false
+  card_post_count: true
 disqus:
   shortname: null
   apikey: null
@@ -265,15 +286,17 @@ waline:
   option: null
 utterances:
   repo: null
-  issue_term: url
+  issue_term: pathname
   light_theme: github-light
   dark_theme: photon-dark
+  js: null
+  option: null
 facebook_comments:
   app_id: null
   user_id: null
   pageSize: 10
   order_by: social
-  lang: zh_CN
+  lang: en_US
 twikoo:
   envId: null
   region: null
@@ -283,9 +306,9 @@ giscus:
   repo: null
   repo_id: null
   category_id: null
-  theme:
-    light: light
-    dark: dark
+  light_theme: light
+  dark_theme: dark
+  js: null
   option: null
 remark42:
   host: null
@@ -296,58 +319,79 @@ artalk:
   site: null
   visitor: false
   option: null
-chat_btn: false
-chat_hide_show: false
+chat:
+  use: null
+  rightside_button: false
+  button_hide_show: false
 chatra:
-  enable: false
   id: null
 tidio:
-  enable: false
   public_key: null
-daovoice:
-  enable: false
-  app_id: null
 crisp:
-  enable: false
   website_id: null
-messenger:
-  enable: false
-  pageID: null
-  lang: zh_CN
 baidu_analytics: null
 google_analytics: null
 cloudflare_analytics: null
 microsoft_clarity: null
+umami_analytics:
+  enable: false
+  serverURL: null
+  website_id: null
+  option: null
+  UV_PV:
+    site_uv: false
+    site_pv: false
+    page_pv: false
+    token: null
 google_adsense:
   enable: false
-  auto_ads: false
+  auto_ads: true
   js: https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
   client: null
   enable_page_level_ads: true
+ad:
+  index: null
+  aside: null
+  post: null
 site_verification: null
-index_site_info_top: null
-index_top_img_height: null
 category_ui: null
 tag_ui: null
-background: null
-footer_bg: true
+rounded_corners_ui: true
+text_align_justify: false
 mask:
   header: true
   footer: true
-rightside-bottom: null
+preloader:
+  enable: false
+  source: 1
+  pace_css_url: null
 enter_transitions: true
+display_mode: light
+beautify:
+  enable: false
+  field: post
+  title_prefix_icon: null
+  title_prefix_icon_color: null
+font:
+  global_font_size: null
+  code_font_size: null
+  font_family: null
+  code_font_family: null
+blog_title_font:
+  font_link: null
+  font_family: null
 activate_power_mode:
-  enable: true
+  enable: false
   colorful: true
-  shake: false
-  mobile: true
+  shake: true
+  mobile: false
 canvas_ribbon:
   enable: false
   size: 150
   alpha: 0.6
   zIndex: -1
-  click_to_change: true
-  mobile: true
+  click_to_change: false
+  mobile: false
 canvas_fluttering_ribbon:
   enable: false
   mobile: false
@@ -360,65 +404,43 @@ canvas_nest:
   mobile: false
 fireworks:
   enable: false
-  zIndex: 2000
+  zIndex: 9999
   mobile: false
 click_heart:
   enable: false
   mobile: false
-ClickShowText:
+clickShowText:
   enable: false
   text: null
   fontSize: 15px
   random: false
   mobile: false
-display_mode: light
-beautify:
-  enable: true
-  field: post
-  title-prefix-icon: null
-  title-prefix-icon-color: null
-font:
-  global-font-size: null
-  code-font-size: null
-  font-family: >-
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Lato,
-    Roboto, "PingFang SC", "Microsoft JhengHei", "Microsoft YaHei", sans-serif
-  code-font-family: >-
-    consolas, Menlo, "PingFang SC", "Microsoft JhengHei", "Microsoft YaHei",
-    sans-serif
-blog_title_font:
-  font_link: null
-  font-family: null
-hr_icon:
-  enable: true
-  icon: null
-  icon-top: null
-subtitle:
-  enable: true
-  effect: true
-  typed_option: null
-  loop: true
-  source: 1
-  sub: null
-preloader:
+lightbox: null
+series:
   enable: false
-  source: 1
-  pace_css_url: null
-wordcount:
-  enable: true
-  post_wordcount: true
-  min2read: true
-  total_wordcount: true
-medium_zoom: false
-fancybox: true
+  orderBy: title
+  order: 1
+  number: true
 abcjs:
   enable: false
   per_page: true
 mermaid:
   enable: false
+  code_write: false
   theme:
     light: default
     dark: dark
+chartjs:
+  enable: false
+  fontColor:
+    light: rgba(0, 0, 0, 0.8)
+    dark: rgba(255, 255, 255, 0.8)
+  borderColor:
+    light: rgba(0, 0, 0, 0.1)
+    dark: rgba(255, 255, 255, 0.2)
+  scale_ticks_backdropColor:
+    light: transparent
+    dark: transparent
 note:
   style: flat
   icons: true
@@ -432,10 +454,10 @@ aplayerInject:
   per_page: true
 snackbar:
   enable: true
-  position: top-center
+  position: bottom-center
   bg_light: '#49b1f5'
   bg_dark: '#1f1f1f'
-instantpage: true
+instantpage: false
 pangu:
   enable: false
   field: site
@@ -444,6 +466,13 @@ lazyload:
   field: site
   placeholder: null
   blur: true
+pwa:
+  enable: false
+  manifest: null
+  apple_touch_icon: null
+  favicon_32_32: null
+  favicon_16_16: null
+  mask_icon: null
 Open_Graph_meta:
   enable: true
   option: null

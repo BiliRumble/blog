@@ -25,10 +25,6 @@ $dafault-code-font = consolas, Menlo, 'PingFang SC', $chinseFont, sans-serif
 $font-family = hexo-config('font.font_family') ? unquote(hexo-config('font.font_family')) : $dafault-font-family
 $code-font-family = hexo-config('font.code_font_family') ? unquote(hexo-config('font.code_font_family')) : $dafault-code-font
 $site-name-font = hexo-config('blog_title_font.font_family') && unquote(hexo-config('blog_title_font.font_family'))
-// hr
-$hrEnable = hexo-config('hr_icon') && hexo-config('hr_icon.enable')
-$hr-icon = $hrEnable && hexo-config('hr_icon.icon') ? hexo-config('hr_icon.icon') : '\f0c4'
-$hr-icon-top = $hrEnable && hexo-config('hr_icon.icon_top') ? convert(hexo-config('hr_icon.icon_top')) : -10px
 // page beatutify
 $beautifyEnable = hexo-config('beautify.enable')
 $title-prefix-icon = $beautifyEnable && hexo-config('beautify.title_prefix_icon') ? hexo-config('beautify.title_prefix_icon') : '\f0c1'

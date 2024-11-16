@@ -6,17 +6,33 @@
       font-size: 2em
 
   .category-list
-    margin-bottom: 0
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    flex-direction: row
+    text-align: center
+    margin: 5em 0 3em
 
     a
       color: var(--font-color)
+      color: --font-color !important
 
       &:hover
         color: $text-hover
+        color: #0084FF !important
 
     .category-list-count
       margin-left: 8px
+      background: var(--card-bg)
+      padding: 4px 4px
+      border-radius: 6px
       color: var(--card-meta)
+      line-height: 1
+      text-align: center
+      min-width 35px
+      display: inline-block
+      font-size: 1rem
+      box-shadow: 0 8px 16px -4px #2c2d300c
 
       &:before
         content: '('
@@ -25,7 +41,7 @@
         content: ')'
 
   ul
-    padding: 0 0 0 20px
+    padding: 0
     @extend .list-beauty
 
     ul
@@ -35,3 +51,31 @@
       position: relative
       margin: 6px 0
       padding: .12em .4em .12em 1.4em
+      display: flex
+      width fit-content
+      font-size: 1.2em !important
+      padding: 0.2em 0.5em
+      background: var(--card-bg)
+      margin: 0.5em 0.5em
+      border-radius: 12px
+      -webkit-backface-visibility: hidden
+      -webkit-transform-style: preserve-3d
+      border: 1px solid #a1a1af
+      box-shadow: 0 8px 16px -4px #2c2d300c
+      align-items: center
+
+      &:before
+        position: unset
+        width: auto
+        height: auto
+        border: 0
+        border-radius: 0
+        background: 0
+        color: var(--font-color) !important
+        cursor: pointer
+        content: "\f02c" !important
+        font-family: "Font Awesome 6 Free" !important
+        font-weight: 900 !important
+        opacity: 0.4
+        padding-top: 2px
+        padding-right: 2px
