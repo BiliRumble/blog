@@ -13,7 +13,7 @@ function initLive2d() {
 			initWidget({
 				waifuPath: "/assets/config/waifu-tips.json",
 				//apiPath: "https://live2d.fghrsh.net/api/",
-				cdnPath: "/assets/config/model/",
+				cdnPath: "/assets/config/",
 				tools: ["asteroids", "switch-model", "switch-texture", "quit"]
 			});
 		});
