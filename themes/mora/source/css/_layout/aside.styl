@@ -1,5 +1,7 @@
 #aside-content
   width: 26%
+  max-width: 312px
+  min-width: 300px
 
   +minWidth900()
     if hexo-config('aside.position') == 'right'
@@ -390,6 +392,7 @@
 +minWidth900()
   html.hide-aside
     .layout
+      max-width: 1400px
       justify-content: center
 
       > .aside-content
