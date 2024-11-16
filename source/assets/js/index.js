@@ -9,6 +9,7 @@ const loadUtils = () => new Promise((resolve, reject) => {
 const init = async () => {
     try {
         await loadExternalResource("/assets/js/live2d-widget/autoload.js", "js");
+        await loadExternalResource("/assets/js/publicSacrificeDay/index.js", "js");
     } catch (e) {console.error(e)} finally {
         initLive2d();
     }
