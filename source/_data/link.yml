@@ -1,5 +1,4 @@
-- class_name: 友情链接
-  class_desc: ...?
+- class_name:
   link_list:
     - name: Hexo
       link: https://hexo.io/zh-cn/
