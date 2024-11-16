@@ -32,8 +32,8 @@ mixin rightsideItem(array)
 
 #rightside
   - const { enable, hide, show } = theme.rightside_item_order
-  - const hideArray = enable ? hide && hide.split(',') : ['readmode','translate','darkmode','hideAside']
-  - const showArray = enable ? show && show.split(',') : ['toc','chat','comment']
+  - const hideArray = enable ? hide && hide.split(',') : ['readmode','translate','hideAside']
+  - const showArray = enable ? show && show.split(',') : ['toc', 'darkmode', 'chat','comment']
 
   
   #rightside-config-hide

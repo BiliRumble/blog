@@ -124,7 +124,7 @@ footer:
 aside:
   enable: true
   hide: false
-  button: true
+  button: false
   mobile: false
   position: right
   display:
@@ -183,9 +183,9 @@ aside:
     last_push_date: true
     sort_order: null
     runtime_date: true
-rightside_bottom: null
+rightside_bottom: false
 translate:
-  enable: false
+  enable: true
   default: 繁
   defaultEncoding: 2
   translateDelay: 0
@@ -195,7 +195,7 @@ readmode: true
 darkmode:
   enable: true
   button: true
-  autoChangeMode: false
+  autoChangeMode: true
   start: '19:00'
   end: '5:00'
 rightside_scroll_percent: false
