@@ -83,7 +83,7 @@ pages
             _[name].tsx
 ```
 现在, `modules`的输出如下:
-![module控制台输出](/images/TS-FontEnd-react-file-route-moduleoutput.png "输出")
+![module控制台输出](assets/images/TS-FontEnd-react-file-route-moduleoutput.png "输出")
 
 ## 生成路由配置
 我们可以先将 modules 变量转换为嵌套结构的 JSON, 然后将其转换为 react-router-dom 所需的格式.
@@ -182,7 +182,7 @@ function generateRouteConfig(): RouteObject[] {
 const routeConfig = generateRouteConfig();
 ```
 它的输出结果如下:
-![route输出结果](images/TS-FontEnd-react-file-route-routeoutput.png "输出")
+![route输出结果](assets/images/TS-FontEnd-react-file-route-routeoutput.png "输出")
 
 ## 使用
 ```tsx

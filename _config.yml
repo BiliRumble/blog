@@ -5,11 +5,11 @@
 # 站点配置
 title: rumble's blog
 subtitle: ''
-description: ''
+description: 'rumble的博客'
 keywords: rumble的博客, rumble's blog,blog,博客,rumble,bilirumble
 author: rumble
 language: zh-CN
-timezone: ''
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -105,26 +105,8 @@ deploy:
   type: ''
 
 # Live2D设置
-## https://github.com/xiazeyu/live2d-widget.js
-## https://l2dwidget.js.org/docs/class/src/index.js~L2Dwidget.html#instance-method-init
 live2d:
-  model:
-    scale: 1
-    hHeadPos: 0.5
-    vHeadPos: 0.618
-  display:
-    superSample: 2
-    width: 150
-    height: 300
-    position: left
-    hOffset: 0
-    vOffset: -20
-  mobile:
-    show: false
-    scale: 0.5
-  react:
-    opacityDefault: 0.7
-    opacityOnHover: 0.2
+  enable: true
 
 ## abbrlink config
 abbrlink:

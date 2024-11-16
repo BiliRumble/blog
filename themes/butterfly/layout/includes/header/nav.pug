@@ -9,14 +9,13 @@ nav#nav
       a.nav-page-title(href=url_for('/'))
         span.site-name=(page.title || config.title)
   #menus
+    if theme.menu
+      != partial('includes/header/menu_item', {}, {cache: true})
+  #nav-right
     if theme.search.use
       #search-button
         span.site-page.social-icon.search
-          i.fas.fa-search.fa-fw
-          span= ' ' + _p('search.title')
-    if theme.menu
-      != partial('includes/header/menu_item', {}, {cache: true})
-
-      #toggle-menu
+          i.iconfont.fas.fa-search.fa-fw
+    #toggle-menu
         span.site-page
-          i.fas.fa-bars.fa-fw
+          i.iconfont.fas.fa-bars.fa-fw
