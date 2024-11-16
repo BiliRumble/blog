@@ -4,9 +4,14 @@ $indexEnable = hexo-config('cover.index_enable')
 #recent-posts
   .recent-post-item
     @extend .cardHover
+    height: 19em
+    border: var(--style-border)
     position: relative
     overflow: hidden
     margin-bottom: 20px
+
+    +maxWidth768()
+      height: auto
 
     if $indexLayout == 6 || ($indexLayout == 7)
       display: inline-block
@@ -81,9 +86,12 @@ $indexEnable = hexo-config('cover.index_enable')
         @extend .imgHover
 
     & >.recent-post-info
+      padding: 0 56px
+      width: 64%
       +maxWidth768()
         padding: 20px 20px 30px
         width: 100%
+        text-align: center
 
       if $indexLayout == 1 || ($indexLayout == 2 || ($indexLayout == 3))
         padding: 0 40px
