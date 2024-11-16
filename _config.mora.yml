@@ -110,8 +110,17 @@ footer:
   owner:
     enable: true
     since: 2019
-  custom_text: null
-  copyright: false
+    link: https://www.rumbl.top
+  startDate: 2019-08-25 14:35:24
+  # 备案
+  icp:
+    enable: true
+    number: 萌ICP备20240013号
+    link: https://icp.gov.moe/?keyword=20240013
+  # 自定义链接
+  links:
+    - MoratoMC || https://github.com/MoratoMC
+    - Morato || https://www.morato.top
 aside:
   enable: true
   hide: false
@@ -173,7 +182,7 @@ aside:
     post_count: true
     last_push_date: true
     sort_order: null
-    runtime_date: null
+    runtime_date: true
 rightside_bottom: null
 translate:
   enable: false
