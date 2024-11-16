@@ -4,6 +4,7 @@
   var top_img = false
   let headerClassName = 'not-top-img'
   var bg_img = ''
+  var post_bg_img = ''
 
 if !theme.disable_top_img && page.top_img !== false
   if is_post()
@@ -26,8 +27,10 @@ if !theme.disable_top_img && page.top_img !== false
   if top_img !== false
     - bg_img = `background:url('${top_img}') left 10%/cover no-repeat`
     - headerClassName = is_home() ? '' : is_post() ? 'post-bg' : 'not-home-page'
+  if is_post() && top_img !== false
+    - post_bg_img = `background:url('${top_img}');`
 
-header#page-header(class=`${headerClassName + isFixedClass}`)
+header#page-header(class=`${headerClassName + isFixedClass}` style=post_bg_img)
   include ./nav.pug
   if top_img !== false
     if is_post()
