@@ -40,6 +40,12 @@
   -moz-user-select: none
   -ms-user-select: none
   user-select: none
+  +maxWidth768()
+    flex-direction: column !important
+
+  +maxWidth768()
+    #days-since-start
+      display: none !important
 
   a
     color: var(--text-color)
@@ -81,3 +87,7 @@
         line-height: 2.45
         margin: 0 10px
         color: var(--font-color) !important
+    
+    +maxWidth768()
+      .footer-links
+        display: none !important
