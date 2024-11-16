@@ -24,10 +24,10 @@ if !theme.disable_top_img && page.top_img !== false
     - top_img = page.top_img || theme.default_top_img
 
   if top_img !== false
-    - bg_img = getBgPath(top_img)
-    - headerClassName = is_home() ? 'full_page' : is_post() ? 'post-bg' : 'not-home-page'
+    - bg_img = `background:url('${top_img}') left 10%/cover no-repeat`
+    - headerClassName = is_home() ? '' : is_post() ? 'post-bg' : 'not-home-page'
 
-header#page-header(class=`${headerClassName + isFixedClass}` style=bg_img)
+header#page-header(class=`${headerClassName + isFixedClass}`)
   include ./nav.pug
   if top_img !== false
     if is_post()
@@ -41,18 +41,6 @@ header#page-header(class=`${headerClassName + isFixedClass}` style=bg_img)
             use(href='#gentle-wave', x='48', y='3')
             use(href='#gentle-wave', x='48', y='5')
             use(href='#gentle-wave', x='48', y='7')
-    else if is_home()
-      #site-info
-        h1#site-title=config.title
-        if theme.subtitle.enable
-          - var loadSubJs = true
-          #site-subtitle
-            span#subtitle
-        if theme.social
-          #site_social_icons
-            !=partial('includes/header/social', {}, {cache: true})
-      #scroll-down
-        i.fas.fa-angle-down.scroll-down-effects
     else
       #page-site-info
         h1#site-title=page.title || page.tag || page.category
@@ -60,3 +48,12 @@ header#page-header(class=`${headerClassName + isFixedClass}` style=bg_img)
     //- improvement seo
     if !is_post()
       h1.title-seo=page.title || page.tag || page.category || config.title
+if is_home()
+  #banner()
+    #background(style=bg_img)
+      #site-info
+        h1#site-title=config.title
+        if theme.subtitle.enable
+          - var loadSubJs = true
+          #site-subtitle
+            span#subtitle
