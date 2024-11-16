@@ -280,6 +280,7 @@
   z-index: 90
   display: flex
   align-items: center
+  justify-content: center
   padding: 0 36px
   width: 100%
   height: 60px
@@ -293,140 +294,155 @@
   &.show
     opacity: 1
 
-  #blog-info
-    flex: 1
-    color: var(--font-color)
-    @extend .limit-one-line
-
-    .site-icon
-      margin-right: 6px
-      height: 36px
-      vertical-align: middle
-
-    .nav-page-title
-      display: none
-
-  #toggle-menu
-    display: none
-    padding: 2px 0 0 6px
-    vertical-align: top
-
-    &:hover
-      color: var(--white)
-  #nav-right
+  #nav-inner
+    width: 1400px;
+    display: -webkit-box
+    display: -moz-box
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: box
     display: flex
-    flex-wrap: nowrap
-    flex: 1 1 auto
-    justify-content: flex-end
-    margin-left: auto
+    -webkit-box-align: center
+    -moz-box-align: center
+    -o-box-align: center
+    -ms-flex-align: center
+    -webkit-align-items: center
+    align-items: center
+    padding: 0 .8rem
 
-  a,span.site-page
-    color: var(--font-color)
+    #blog-info
+      flex: 1
+      color: var(--font-color)
+      @extend .limit-one-line
 
-    &:hover
-      color: var(--text-highlight-color)
-  
-  .iconfont
+      .site-icon
+        margin-right: 6px
+        height: 36px
+        vertical-align: middle
 
-  .site-name
-    text-shadow: 2px 2px 4px rgba($dark-black, .15)
-    font-weight: 700
-    padding: 0 4px
+      .nav-page-title
+        display: none
 
-  .menus_items
-    display: inline
-
-    .menus_item
-      position: relative
-      display: inline-block
-      padding: 0 0 0 14px
+    #toggle-menu
+      display: none
+      padding: 2px 0 0 6px
+      vertical-align: top
 
       &:hover
-        .menus_item_child
-          display: block
+        color: var(--white)
+    #nav-right
+      display: flex
+      flex-wrap: nowrap
+      flex: 1 1 auto
+      justify-content: flex-end
+      margin-left: auto
 
-        & > span > i:last-child
-          transform: rotate(180deg)
+    a,span.site-page
+      color: var(--font-color)
 
-      & > span > i:last-child
-        padding: 4px
-        transition: transform .3s
+      &:hover
+        color: var(--text-highlight-color)
 
-      .menus_item_child
-        position: absolute
-        right: 0
-        display: none
-        margin-top: 8px
-        padding: 0
-        width: max-content
-        background-color: var(--sidebar-bg)
-        box-shadow: 0 5px 20px -4px rgba($dark-black, .5)
-        animation: sub_menus .3s .1s ease both
-        addBorderRadius(5)
-
-        &:before
-          position: absolute
-          top: -8px
-          left: 0
-          width: 100%
-          height: 20px
-          content: ''
-
-        li
-          list-style: none
-
-          &:hover
-            background: var(--text-bg-hover)
-
-          if hexo-config('rounded_corners_ui')
-            &:first-child
-              border-top-left-radius: 5px
-              border-top-right-radius: 5px
-
-            &:last-child
-              border-bottom-right-radius: 5px
-              border-bottom-left-radius: 5px
-
-          a
-            display: inline-block
-            padding: 8px 16px
-            width: 100%
-            color: var(--font-color) !important
-            text-shadow: none !important
-
-  &.hide-menu
-    #toggle-menu
-      display: inline-block !important
-
-      .site-page
-        font-size: inherit
+    .site-name
+      text-shadow: 2px 2px 4px rgba($dark-black, .15)
+      font-weight: 700
+      padding: 0 4px
 
     .menus_items
-      display: none
+      display: inline
 
-    #search-button span:not(.site-page)
-      display: none
+      .menus_item
+        position: relative
+        display: inline-block
+        padding: 0 0 0 14px
 
-  .site-page
-    position: relative
-    padding-bottom: 6px
-    text-shadow: 1px 1px 2px rgba($dark-black, .3)
-    font-size: .78em
-    cursor: pointer
+        &:hover
+          .menus_item_child
+            display: block
 
-    &:not(.child)
-      &:after
-        position: absolute
-        bottom: 0
-        left: 0
-        z-index: -1
-        width: 0
-        height: 3px
-        background-color: lighten($theme-color, 30%)
-        content: ''
-        transition: all .3s ease-in-out
-        addBorderRadius()
+          & > span > i:last-child
+            transform: rotate(180deg)
 
-      &:hover
+        & > span > i:last-child
+          padding: 4px
+          transition: transform .3s
+
+        .menus_item_child
+          position: absolute
+          right: 0
+          display: none
+          margin-top: 8px
+          padding: 0
+          width: max-content
+          background-color: var(--sidebar-bg)
+          box-shadow: 0 5px 20px -4px rgba($dark-black, .5)
+          animation: sub_menus .3s .1s ease both
+          addBorderRadius(5)
+
+          &:before
+            position: absolute
+            top: -8px
+            left: 0
+            width: 100%
+            height: 20px
+            content: ''
+
+          li
+            list-style: none
+
+            &:hover
+              background: var(--text-bg-hover)
+
+            if hexo-config('rounded_corners_ui')
+              &:first-child
+                border-top-left-radius: 5px
+                border-top-right-radius: 5px
+
+              &:last-child
+                border-bottom-right-radius: 5px
+                border-bottom-left-radius: 5px
+
+            a
+              display: inline-block
+              padding: 8px 16px
+              width: 100%
+              color: var(--font-color) !important
+              text-shadow: none !important
+    
+    .site-page
+      position: relative
+      padding-bottom: 6px
+      text-shadow: 1px 1px 2px rgba($dark-black, .3)
+      font-size: .78em
+      cursor: pointer
+
+      &:not(.child)
         &:after
-          width: 100%
+          position: absolute
+          bottom: 0
+          left: 0
+          z-index: -1
+          width: 0
+          height: 3px
+          background-color: lighten($theme-color, 30%)
+          content: ''
+          transition: all .3s ease-in-out
+          addBorderRadius()
+
+        &:hover
+          &:after
+            width: 100%
+
+  &.hide-menu
+    #nav-inner
+      #toggle-menu
+        display: inline-block !important
+
+        .site-page
+          font-size: inherit
+
+      .menus_items
+        display: none
+
+      #search-button span:not(.site-page)
+        display: none
