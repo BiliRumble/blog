@@ -1,7 +1,7 @@
 nav:
   logo: null
   display_title: true
-  fixed: false
+  fixed: true
 menu:
   首页: / || fas fa-home ||
   时间轴: /archives/ || fas fa-archive
