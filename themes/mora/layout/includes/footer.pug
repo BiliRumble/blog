@@ -1,0 +1,37 @@
+#footer-wrap
+  .footer-left
+    if theme.footer.owner.enable
+      span
+        | &copy; #{theme.footer.owner.since} - #{new Date().getFullYear()} 
+        a(href=theme.footer.owner.link target="_blank" rel="noopener noreferrer") #{config.author}
+    if theme.footer.startDate
+      span#days-since-start
+        | 本站已运行 0 天 0 小时 0 分钟 0 秒
+  .footer-right
+    if theme.footer.links
+      .footer-links
+        each link in theme.footer.links
+          - var parts = link.split(' || ')
+          a(href=parts[1] target="_blank" rel="noopener noreferrer") #{parts[0]}
+      if theme.footer.icp.enable
+        a(href=theme.footer.icp.link target="_blank" rel="noopener noreferrer") #{theme.footer.icp.number}
+
+script.
+  document.addEventListener('DOMContentLoaded', function() {
+    function updateRuntime() {
+      var startDate = new Date("#{theme.footer.startDate}");
+      var now = new Date();
+      var diffInSeconds = Math.floor((now - startDate) / 1000);
+
+      var days = Math.floor(diffInSeconds / (3600 * 24));
+      var hours = Math.floor((diffInSeconds % (3600 * 24)) / 3600);
+      var minutes = Math.floor((diffInSeconds % 3600) / 60);
+      var seconds = diffInSeconds % 60;
+
+      document.getElementById('days-since-start').textContent = 
+        "本站已运行 " + days + " 天 " + hours + " 小时 " + minutes + " 分钟 " + seconds + " 秒";
+    }
+
+    updateRuntime();
+    setInterval(updateRuntime, 1000);
+  });

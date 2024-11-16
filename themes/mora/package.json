@@ -1,0 +1,25 @@
+{
+  "name": "mora",
+  "version": "1.0.0",
+  "description": "Fork from hexo-theme-butterfly",
+  "main": "package.json",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hexo",
+    "theme",
+    "butterfly",
+    "mora",
+    "Card UI Design"
+  ],
+  "dependencies": {
+    "hexo-renderer-pug": "^3.0.0",
+    "hexo-renderer-stylus": "^3.0.1",
+    "hexo-theme-butterfly": "file:",
+    "mora": "file:"
+  },
+  "homepage": "https://blog.rumbl.top/",
+  "author": "bilirumble <me@rumbl.top>",
+  "license": "Apache-2.0"
+}
