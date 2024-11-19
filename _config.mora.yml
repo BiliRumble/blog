@@ -252,7 +252,7 @@ share:
   addtoany:
     item: facebook,twitter,wechat,sina_weibo,facebook_messenger,email,copy_link
 comments:
-  use: Gitalk
+  use: Twikoo
   text: true
   lazyload: false
   count: true
@@ -306,9 +306,9 @@ facebook_comments:
   order_by: social
   lang: en_US
 twikoo:
-  envId: null
-  region: null
-  visitor: false
+  envId: https://twik.rumbl.top/
+  region: ap-guangzhou
+  visitor: true
   option: null
 giscus:
   repo: null
