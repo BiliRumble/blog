@@ -61,3 +61,17 @@ if is_home()
           - var loadSubJs = true
           #site-subtitle
             span#subtitle
+    if theme.banner_random.enable
+      .banner-random
+        .random-title
+          P.title
+            = _p('banner-random.title')
+          .botton-box
+            a.refresh(href="javascript:mRandomPost.RandomPosts()")
+              i.iconfont.fas.fa-refresh
+              span
+                = _p('banner-random.change')
+            .slide
+              i.iconfont.fas.fa-angle-left(style="" onclick="mRandomPost.RandomBar('prev')")
+              i.iconfont.fas.fa-angle-right(style="" onclick="mRandomPost.RandomBar('next')")
+        .random-list

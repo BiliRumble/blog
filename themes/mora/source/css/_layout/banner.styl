@@ -58,3 +58,155 @@
             color: var(--light-grey)
             text-shadow: 2px 2px 4px rgba(0, 0, 0, .15)
             font-size: 1.43em
+
+  .banner-random
+    margin-top: 15px
+
+    .random-title
+      display: flex
+      justify-content: space-between
+      align-items: center
+
+      .title
+        font-size: 1.25rem
+        font-weight: 600
+        margin: 0
+        min-width: 80px
+
+      .botton-box
+        display: flex
+        font-weight: 600
+
+        +maxWidth768()
+          width: 100%
+          justify-content: space-between
+          align-items: center
+
+        .refresh
+          opacity: .5
+          transition: .6s
+          color: var(--font-color)
+
+          +maxWidth768()
+            margin-left: 8px
+
+          &:hover
+            color: var(--text-bg-hover)
+            opacity: 1
+
+          i
+            margin-right: 6px
+
+            +maxWidth768()
+              font-size: 18px
+
+          span
+            +maxWidth768()
+              display: none
+
+        .slide
+          display: none
+
+          +maxWidth768()
+            display: flex
+
+          i
+            margin-left: 4px
+            font-size: 14px
+            width: 28px
+            height: 28px
+            display: flex
+            align-items: center
+            justify-content: center
+
+    .random-list
+      margin-top: 15px
+      display: flex
+
+      +maxWidth768()
+        overflow-x: scroll
+        overflow-y: hidden
+        scroll-behavior: smooth
+      
+      &::-webkit-scrollbar
+        display: none
+
+      .post_item
+        width: calc(100% / 4 - 8px)
+        margin-right: 15px
+        border-radius: 8px
+        background: var(--card-bg)
+        box-shadow: var(--shadow-border)
+        transition: .6s
+        border: var(--card-border)
+        height: 110px
+        animation: barrageIn .6s .4s backwards
+
+        +maxWidth768()
+          width: 240px
+          min-width: 240px
+
+        &:last-child
+          margin-right: 0
+
+        &:hover
+          background: var(--text-bg-hover)
+          box-shadow: var(--icat-shadow-blue)
+
+          .post_box
+              .post-info
+                  opacity: 0
+
+              .post_description
+                  opacity: 1
+
+        a:hover
+          color: var(--font-color-anit)
+
+        .post_box
+          width: 100%
+          height: 100%
+          display: flex
+          position: relative
+          align-items: center
+          justify-content: center
+
+          .post-info
+            display: flex
+            align-items: center
+            justify-content: center
+            flex-direction: column
+            padding: 0 15px
+            transition: .6s
+            opacity: 1
+
+            +maxWidth768()
+              padding: 0 8px
+
+            .post-title
+              margin: 0
+              font-size: 1rem
+              font-weight: 600
+              line-height: 1.5
+              overflow: hidden
+              display: -webkit-box
+              color: var(--font-color)
+
+            .info-box
+              font-size: 13px
+              color: var(--font-color)
+              display: flex
+
+          .post_description
+            position: absolute
+            opacity: 0
+            transition: .6s
+            text-align: center
+            padding: 0 15px
+            line-height: 1.6
+            overflow: hidden
+            display: -webkit-box
+            margin: 0
+
+            +maxWidth768()
+              padding: 0 8px

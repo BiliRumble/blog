@@ -2,6 +2,10 @@ footer:
   framework: 프레임워크
   theme: 테마
 
+banner-random:
+  title: 랜덤 포스트
+  change: 바꿔봐
+
 copy:
   success: 복사 성공
   error: 복사 실패

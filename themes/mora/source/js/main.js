@@ -932,3 +932,75 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementsByTagName("html")[0].setAttribute("style","filter:gray !important;filter:grayscale(100%);-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);");
   // 祭奠日自动变灰 - end
 })
+
+const mRandomPost = {
+  RandomPosts: function() {
+    const cache = sessionStorage.getItem('randomPosts');
+    const cacheExpire = sessionStorage.getItem('randomPostsExpire');
+
+    if (cache && cacheExpire && new Date().getTime() < cacheExpire) {
+      const randomPosts = JSON.parse(cache).sort(() => 0.5 - Math.random()).slice(0, 4);
+      return this.renderingPosts(randomPosts);
+    }
+
+    sessionStorage.removeItem('randomPosts');
+    sessionStorage.removeItem('randomPostsExpire');
+    fetch('/articles-random.json')
+      .then(response => response.json())
+      .then(raw => {
+        const data = raw.map((i) => ({
+          title: i.title.length > 50 ? i.title.substring(0, 50) + '...' : i.title,
+          time: i.time,
+          categories: i.categories,
+          description: i.description,
+          link: i.link
+        }))
+        sessionStorage.setItem('randomPosts', JSON.stringify(data));
+        sessionStorage.setItem('randomPostsExpire', new Date().getTime() + 2 * 60 * 60 * 1000);
+
+        const randomPosts = data.sort(() => 0.5 - Math.random()).slice(0, 4)
+        return this.renderingPosts(randomPosts)
+      });
+  },
+  renderingPosts: function(data) {
+    document.querySelector(".banner-random>.random-list").innerHTML = ''
+    const post = data.map((i) => `
+    <div class="post_item">
+      <a class="post_box" title="${i.title}" href="javascript:void(0)" onclick="pjax.loadUrl('${i.link}')">
+        <div class="post-info">
+          <p class="post-title">
+            ${i.title}
+          </p>
+          <div class="info-box">
+            <span>${i.time}</span>
+            <span style="margin: 0 6px">|</span>
+            <span>${i.categories}</span>
+          </div>
+        </div>
+        <p class="post_description">
+          ${i.description}
+        </p>
+      </a>
+    </div>
+    `).join('');
+    document.querySelector(".banner-random>.random-list")
+			.innerHTML = post;
+  },
+  RandomBar: function(text) {
+		const randomList = document.querySelector('.random-list');
+		const slideAmount = 210;
+	
+		if (text === 'prev') {
+			randomList.scrollLeft -= slideAmount;
+		} else if (text === 'next') {
+			randomList.scrollLeft += slideAmount;
+		}
+	} // 主页推荐banner滑块
+}
+
+window.DOMReady = function () {
+  if (location.pathname == "/") return mRandomPost.RandomPosts();
+}
+
+document.addEventListener("DOMContentLoaded", DOMReady)
+document.addEventListener("pjax:complete", DOMReady)

@@ -2,6 +2,10 @@ footer:
   framework: Framework
   theme: Theme
 
+banner-random:
+  Title: Random Article
+  Change: Change for another
+
 copy:
   success: Copy Successful
   error: Copy Failed

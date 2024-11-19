@@ -143,6 +143,10 @@ index_site_info_top:
 # The height of top_img, eg: 300px/300em/300rem
 index_top_img_height:
 
+# 首页随机文章
+banner_random:
+  enable: true
+
 # The subtitle on homepage
 subtitle:
   enable: false

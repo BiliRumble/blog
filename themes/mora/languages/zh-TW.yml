@@ -2,6 +2,10 @@ footer:
   framework: 框架
   theme: 主題
 
+banner-random:
+  title: 随机文章
+  change: 换一换
+
 copy:
   success: 複製成功
   error: 複製失敗
