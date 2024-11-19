@@ -4,7 +4,6 @@ if hexo-config('darkmode.enable') || hexo-config('display_mode') == 'dark'
     --font-color: alpha(#FFFFFF, .7)
     --hr-border: alpha(#FFFFFF, .4)
     --hr-before-color: alpha(#FFFFFF, .7)
-    --footer-bg: linear-gradient(90deg, rgba(247, 149, 51, 0.1) 0, rgba(243, 112, 85, 0.1) 15%, rgba(239, 78, 123, 0.1) 30%, rgba(161, 102, 171, 0.1) 44%, rgba(80, 115, 184, 0.1) 58%, rgba(16, 152, 173, 0.1) 72%, rgba(7, 179, 155, 0.1) 86%, rgba(109, 186, 130, 0.1) 100%);
     --search-bg: #121212
     --search-input-color: alpha(#FFFFFF, .7)
     --search-a-color: alpha(#FFFFFF, .7)
@@ -16,7 +15,6 @@ if hexo-config('darkmode.enable') || hexo-config('display_mode') == 'dark'
     --tab-button-hover-bg: lighten(#121212, 15)
     --tab-button-active-bg: #121212
     --card-bg: #121212
-    --card-info-bg: url(https://s11.ax1x.com/2023/05/02/p9GWVGq.jpg);
     --sidebar-bg: #121212
     --sidebar-menu-bg: lighten(#121212, 5)
     --btn-hover-color: lighten(#121212, 40)
@@ -33,9 +31,15 @@ if hexo-config('darkmode.enable') || hexo-config('display_mode') == 'dark'
     --toc-link-color: alpha(#FFFFFF, .6)
     --scrollbar-color: lighten(#121212, 25)
     --timeline-bg: lighten(#121212, 5)
-    --style-border: #3d3d3f
     --zoom-bg: #121212
     --mark-bg: alpha($dark-black, .6)
+    --footer-background: linear-gradient(90deg, rgba(247, 149, 51, 0.1) 0, rgba(243, 112, 85, 0.1) 15%, rgba(239, 78, 123, 0.1) 30%, rgba(161, 102, 171, 0.1) 44%, rgba(80, 115, 184, 0.1) 58%, rgba(16, 152, 173, 0.1) 72%, rgba(7, 179, 155, 0.1) 86%, rgba(109, 186, 130, 0.1) 100%)
+    // 个人卡片背景
+    --card-info-bg: url($card-info-bg-dark)
+    // 边框
+    --card-border: 1px solid #3d3d3f
+    --shadow-border: 0 8px 16px -4px #00000050
+    // 波浪
     --wave-color-1: var(--global-bg)
     --wave-color-2: #07070980
     --wave-color-3: #07070940

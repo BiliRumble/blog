@@ -545,10 +545,6 @@ hexo.extend.filter.register('before_generate', () => {
       bg_dark: '#1f1f1f'
     },
     instantpage: false,
-    pangu: {
-      enable: false,
-      field: 'site'
-    },
     lazyload: {
       enable: false,
       field: 'site',
@@ -567,6 +563,7 @@ hexo.extend.filter.register('before_generate', () => {
       enable: true,
       option: null
     },
+    structured_data: true,
     css_prefix: true,
     inject: {
       head: null,

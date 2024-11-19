@@ -37,7 +37,9 @@ hexo.extend.helper.register('cloudTags', function (options = {}) {
     const ratio = length ? sizes.indexOf(tag.length) / length : 0
     const size = minfontsize + ((maxfontsize - minfontsize) * ratio)
     const style = generateStyle(size, unit)
+    // 标签增加上下标 - start
     return `<a href="${env.url_for(tag.path)}" style="${style}">${tag.name}<sup>${tag.length}</sup></a>`
+    // 标签增加上下标 - end
   }).join('')
 
   return result

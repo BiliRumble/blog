@@ -1,7 +1,11 @@
 #footer
-    background-color: var(--card-bg)
-    border-top: #d8d8d81px solid
-    margin-top: 4rem
+  position: relative
+  // 页脚透明 - start
+  background: var(--footer-background)
+  background-attachment: scroll
+  background-position: bottom
+  background-size: cover
+  // 页脚透明 -end
 
   if hexo-config('footer_img') != false && hexo-config('mask.footer')
     &:before
@@ -12,82 +16,24 @@
       content: ''
 
 #footer-wrap
-  width: 100%
-  max-width: 1400px
-  margin: 0 auto
-  padding: 1.5rem 15px
-  display: -webkit-box
-  display: -moz-box
-  display: -webkit-flex
-  display: -ms-flexbox
-  display: box
-  display: flex
-  -webkit-box-pack: justify
-  -moz-box-pack: justify
-  -o-box-pack: justify
-  -ms-flex-pack: justify
-  -webkit-justify-content: space-between
-  justify-content: space-between
-  -webkit-box-align: center
-  -moz-box-align: center
-  -o-box-align: center
-  -ms-flex-align: center
-  -webkit-align-items: center
-  color: var(--text-color)
-  align-items: center
-  font-size: 15px
-  -webkit-user-select: none
-  -moz-user-select: none
-  -ms-user-select: none
-  user-select: none
-  +maxWidth768()
-    flex-direction: column !important
-
-  +maxWidth768()
-    #days-since-start
-      display: none !important
+  position: relative
+  padding: 40px 20px
+  // 页脚透明
+  color: var(--font-color)
+  text-align: center
 
   a
-    color: var(--text-color)
+    // 页脚透明
+    color: var(--font-color)
 
-  .footer-left
-    display: -webkit-box
-    display: -moz-box
-    display: -webkit-flex
-    display: -ms-flexbox
-    display: box
-    display: flex
-    -webkit-box-orient: vertical
-    -moz-box-orient: vertical
-    -o-box-orient: vertical
-    -webkit-flex-direction: column
-    -ms-flex-direction: column
-    flex-direction: column
-  
-  .footer-right
-    display: -webkit-box
-    display: -moz-box
-    display: -webkit-flex
-    display: -ms-flexbox
-    display: box
-    display: flex
-    -webkit-box-orient: vertical
-    -moz-box-orient: vertical
-    -o-box-orient: vertical
-    -webkit-flex-direction: column
-    -ms-flex-direction: column
-    flex-direction: column
+    &:hover
+      text-decoration: underline
 
-    .footer-links
-      display: flex
-      justify-content: flex-end
-      a:not(:first-child):before
-        content: '|'
-        font-size: 14px
-        line-height: 2.45
-        margin: 0 10px
-        color: var(--font-color) !important
-    
-    +maxWidth768()
-      .footer-links
-        display: none !important
+  .footer-separator
+    margin: 0 4px
+
+  .icp-icon
+    padding: 0 4px
+    max-height: 1.4em
+    width: auto
+    vertical-align: text-bottom

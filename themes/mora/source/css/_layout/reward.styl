@@ -4,6 +4,8 @@
   width: 100%
   text-align: center
   pointer-events: none
+  margin-top: 0
+  width: auto
 
   & > *
     pointer-events: auto
@@ -11,26 +13,36 @@
   .reward-button
     display: inline-block
     padding: 4px 24px
-    background: var(--btn-bg)
-    color: var(--btn-color)
     cursor: pointer
-    addBorderRadius()
+    addBorderRadius(8)
+    background: #f04a63
+    color: #fff
+    padding: 0
+    width: 126px
+    height: 40px
+    line-height: 39px
+    box-shadow: 0 8px 12px -3px #ee7d7936
+    transition: all 0.4s ease 0s
+    margin-right: 0.5rem
+
+    &:hover
+      background: #49b1f5
+      box-shadow: 0 8px 12px -3px #286dea33
 
     i
       margin-right: 5px
 
   &:hover
-    .reward-button
-      background: var(--btn-hover-color)
-
     & > .reward-main
       display: block
 
   .reward-main
     position: absolute
+    width: auto
     bottom: 40px
     left: 0
-    z-index: 100
+    z-index: 1003
+    min-width: 100%
     display: none
     padding: 0 0 15px
     width: 100%

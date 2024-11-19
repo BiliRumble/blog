@@ -1,8 +1,8 @@
 :root
+  --bright-blue: $bright-blue
   --global-font-size: $font-size
   --global-bg: $body-bg
   --font-color: $font-black
-  --footer-bg: linear-gradient(90deg, rgba(247, 149, 51, 0.1) 0, rgba(243, 112, 85, 0.1) 15%, rgba(239, 78, 123, 0.1) 30%, rgba(161, 102, 171, 0.1) 44%, rgba(80, 115, 184, 0.1) 58%, rgba(16, 152, 173, 0.1) 72%, rgba(7, 179, 155, 0.1) 86%, rgba(109, 186, 130, 0.1) 100%);
   --hr-border: lighten($theme-hr-color, 50%)
   --hr-before-color: lighten($theme-hr-color, 30%)
   --search-bg: $search-bg
@@ -16,7 +16,6 @@
   --tab-button-hover-bg: $tab-button-hover-bg
   --tab-button-active-bg: $tab-button-active-bg
   --card-bg: $card-bg
-  --card-info-bg: url(https://s11.ax1x.com/2023/05/02/p9GWEin.jpg)
   --card-meta: $theme-meta-color
   --sidebar-bg: $sidebar-background
   --sidebar-menu-bg: $white
@@ -38,9 +37,15 @@
   --headline-presudo: #a0a0a0
   --scrollbar-color: $scrollbar-color
   --default-bg-color: $theme-color
-  --style-border: #e3e8f7
   --zoom-bg: #fff
   --mark-bg: alpha($dark-black, .3)
+  --footer-background: rgb(255 255 255 / 0%)
+  // 个人卡片背景
+  --card-info-bg: url($card-info-bg)
+  // 边框
+  --card-border: 1px solid #e3e8f7
+  --shadow-border: 0 8px 16px -4px #2c2d300c
+  // 波浪
   --wave-color-1: var(--global-bg)
   --wave-color-2: #f7f9fe82
   --wave-color-3: #f7f9fe36
@@ -219,9 +224,7 @@ blockquote
   border-left: 4px solid $blockquote-padding-color
   background-color: var(--blockquote-bg)
   color: var(--blockquote-color)
-  addBorderRadius(8)
-  margin: 1rem 0
-  padding: 0.9rem 1.2rem
+  addBorderRadius()
 
   footer
     cite

@@ -59,7 +59,7 @@ hexo.extend.helper.register('aside_archives', function (options = {}) {
       <li class="card-archive-list-item">
         <a class="card-archive-list-link" href="${link(item)}">
           <span class="card-archive-list-date">${options.transform ? options.transform(item.name) : item.name}</span>
-          ${showCount ? `<span class="card-archive-list-count">${item.count}</span>` : ''}
+          ${showCount ? `<span class="card-archive-list-count">${item.count} 篇</span>` : ''}
         </a>
       </li>
     `

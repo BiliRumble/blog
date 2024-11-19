@@ -23,7 +23,7 @@ mixin rightsideItem(array)
             i.fas.fa-list-ul
       when 'chat'
         if chat.rightside_button && chat.use
-          button#chat-btn(type="button" title=_p("rightside.chat"))
+          button#chat-btn(type="button" title=_p("rightside.chat") style="display:none")
             i.fas.fa-message
       when 'comment'
         if commentsJsLoad
@@ -33,7 +33,7 @@ mixin rightsideItem(array)
 #rightside
   - const { enable, hide, show } = theme.rightside_item_order
   - const hideArray = enable ? hide && hide.split(',') : ['readmode','translate','hideAside']
-  - const showArray = enable ? show && show.split(',') : ['toc', 'darkmode', 'chat','comment']
+  - const showArray = enable ? show && show.split(',') : ['toc','darkmode','chat','comment']
 
   
   #rightside-config-hide

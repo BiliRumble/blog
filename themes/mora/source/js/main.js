@@ -920,4 +920,15 @@ document.addEventListener('DOMContentLoaded', () => {
       fn()
     })
   })
+
+  // 祭奠日自动变灰 - start
+  const isPublicSacrificeDay = () => {
+    var PSFarr = new Array("0707", "0909", "0918", "1109", "1213");
+    var today = new Date().toLocaleDateString().replace(/\//g, '').replace(new Date().getFullYear(), '');
+    return PSFarr.indexOf(today) !== -1;
+  }
+
+  if (isPublicSacrificeDay())
+    document.getElementsByTagName("html")[0].setAttribute("style","filter:gray !important;filter:grayscale(100%);-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);");
+  // 祭奠日自动变灰 - end
 })

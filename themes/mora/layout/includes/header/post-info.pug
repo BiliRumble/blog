@@ -25,10 +25,6 @@
             i.fa-fw.post-meta-icon(class=date_icon)
             span.post-meta-label= date_title
             time(datetime=date_xml(page[date_type]) title=date_title + ' ' + full_date(page[date_type]))= date(page[date_type], config.date_format)
-          span.post-meta-Publish-Location
-            span.post-mate-separator |
-            i.fas.fa-map-marker-alt.fa-fw.post-meta-icon
-            span= page.push_location || _p('未知')
       if theme.post_meta.post.categories && page.categories.data.length > 0
         span.post-meta-categories
           if theme.post_meta.post.date_type

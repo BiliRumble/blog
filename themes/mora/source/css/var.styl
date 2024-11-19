@@ -12,10 +12,6 @@ $theme-hr-color = $themeColorEnable && hexo-config('theme_color.hr_color') ? con
 $code-foreground = $themeColorEnable && hexo-config('theme_color.code_foreground') ? convert(hexo-config('theme_color.code_foreground')) : $light-red
 $code-background = $themeColorEnable && hexo-config('theme_color.code_background') ? convert(hexo-config('theme_color.code_background')) : rgba(27, 31, 35, .05)
 $theme-toc-color = $themeColorEnable && hexo-config('theme_color.toc_color') ? convert(hexo-config('theme_color.toc_color')) : $strong-cyan
-$wave-color-1 = #f7f9febd
-$wave-color-2 = #f7f9fe82
-$wave-color-3 = #f7f9fe36
-$wave-color-4 = #f7f9fe
 // font
 
 $chinseFont = $language == 'zh-CN' ? 'Microsoft YaHei' : 'Microsoft JhengHei'
@@ -25,6 +21,10 @@ $dafault-code-font = consolas, Menlo, 'PingFang SC', $chinseFont, sans-serif
 $font-family = hexo-config('font.font_family') ? unquote(hexo-config('font.font_family')) : $dafault-font-family
 $code-font-family = hexo-config('font.code_font_family') ? unquote(hexo-config('font.code_font_family')) : $dafault-code-font
 $site-name-font = hexo-config('blog_title_font.font_family') && unquote(hexo-config('blog_title_font.font_family'))
+// hr
+$hrEnable = hexo-config('hr_icon') && hexo-config('hr_icon.enable')
+$hr-icon = $hrEnable && hexo-config('hr_icon.icon') ? hexo-config('hr_icon.icon') : '\f0c4'
+$hr-icon-top = $hrEnable && hexo-config('hr_icon.icon_top') ? convert(hexo-config('hr_icon.icon_top')) : -10px
 // page beatutify
 $beautifyEnable = hexo-config('beautify.enable')
 $title-prefix-icon = $beautifyEnable && hexo-config('beautify.title_prefix_icon') ? hexo-config('beautify.title_prefix_icon') : '\f0c1'
@@ -184,3 +184,7 @@ $tab-to-top-color = #99a9bf
 $tab-to-top-hover-color = $theme-color
 // Tag Plugins - timeline
 $timeline-default-color = $theme-color
+
+// 个人卡片背景
+$card-info-bg = hexo-config('aside.card_author.background')
+$card-info-bg-dark = hexo-config('aside.card_author.background_dark')
