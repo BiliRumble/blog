@@ -24,10 +24,10 @@ if !theme.disable_top_img && page.top_img !== false
   else
     - top_img = page.top_img || theme.default_top_img
 
-  if top_img !== false
+  if top_img !== false && top_img != null
     - bg_img = `background:url('${top_img}') left 10%/cover no-repeat`
     - headerClassName = is_home() ? '' : is_post() ? 'post-bg' : 'not-home-page'
-  if is_post() && top_img !== false
+  if is_post() && top_img !== false && top_img != null
     - post_bg_img = `background:url('${top_img}');`
 
 header#page-header(class=`${headerClassName + isFixedClass}` style=post_bg_img)

@@ -19,10 +19,9 @@
     margin-bottom: 20px
     padding: 20px 24px
 
-    if hexo-config('aside.mobile') == false
-      +maxWidth768()
-        &:not(#card-toc)
-          display: none
+    +maxWidth768()
+      &:not(#card-toc)
+        display: none
 
     &:last-child
       margin-bottom: 0
