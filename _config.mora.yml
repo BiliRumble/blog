@@ -164,7 +164,7 @@ aside:
   card_tags:
     enable: true
     limit: 40
-    color: false
+    color: true
     orderby: random
     order: 1
     sort_order: null
