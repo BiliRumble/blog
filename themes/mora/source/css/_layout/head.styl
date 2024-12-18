@@ -171,7 +171,13 @@
       a,
       span.site-page,
       .site-name
-        color: 0px
+        color: var(--font-color)
+        text-shadow: none
+
+  &.nav-fixed
+    #nav
+      position: fixed
+      top: -60px
       z-index: 91
       background: rgba(255, 255, 255, .7)
       box-shadow: 0 5px 6px -5px alpha($grey, .6)
