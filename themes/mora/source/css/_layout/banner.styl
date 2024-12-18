@@ -11,20 +11,19 @@
   +minWidth2000()
     max-width: 70%
 
-  #background
+  #top_image
     height: 400px
-    background-color: #49b1f5;
+    background-color: #70baeb;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden
-    //border: var(--card-border)
-    //box-shadow: var(--shadow-border)
     position: relative
     transition: .6s
     display: box
     display: flex
     align-items: center
+    box-shadow: var(--card-box-shadow);
     addBorderRadius(8)
 
     +maxWidth768()
@@ -142,9 +141,9 @@
         margin-right: 15px
         border-radius: 8px
         background: var(--card-bg)
-        box-shadow: var(--shadow-border)
+        box-shadow: var(--card-box-shadow);
         transition: .6s
-        border: var(--card-border)
+        // border: var(--card-border)
         height: 110px
         animation: barrageIn .6s .4s backwards
 

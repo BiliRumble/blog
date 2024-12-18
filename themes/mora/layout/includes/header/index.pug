@@ -55,7 +55,7 @@ header#page-header(class=`${isFullPage + headerClassName + isFixedClass}` style=
       h1.title-seo=page.title || page.tag || page.category || config.title
 if is_home()
   #banner()
-    #background(style=bg_img)
+    #top_image(style=bg_img)
       #site-info
         h1#site-title=config.title
         if theme.subtitle.enable

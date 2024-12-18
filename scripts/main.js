@@ -1,7 +1,7 @@
 const { patch } = require('./patch_config');
 
 const main = () => {
-    patch();
+    //patch();
 }
 
 main();
