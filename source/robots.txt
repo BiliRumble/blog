@@ -1,0 +1,8 @@
+User-agent: Baiduspider
+
+Sitemap: https://blog.rumbl.top/baidusitemap.xml
+
+User-agent: *
+Disallow:
+
+Sitemap: https://blog.rumbl.top/sitemap.xml

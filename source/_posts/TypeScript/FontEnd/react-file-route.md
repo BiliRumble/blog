@@ -6,6 +6,7 @@ tags: [React, Vite]
 categories: React
 abbrlink: c9dd71be
 date: 2024-11-14 12:32:48
+updated: 2024-12-18 21:49:15
 ---
 # 开始之前
 > 懒得配置可以试试[Kor](https://github.com/MoratoMC/kor-template), 这是一个基于react的模板, 可以快速搭建一个react项目
