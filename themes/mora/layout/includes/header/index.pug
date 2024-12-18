@@ -2,6 +2,7 @@
   const returnTopImg = img => img !== false ? img || theme.default_top_img : false
   const isFixedClass = theme.nav.fixed ? ' fixed' : ''
   const isFullPage = is_home() ? 'full_page' : ''
+  const isMarkBG = is_post() ? ' mark-bg' : ''
   var top_img = false
   let headerClassName = ' not-top-img'
   var bg_img = ''
@@ -31,7 +32,7 @@ if !theme.disable_top_img && page.top_img !== false
   if is_post() && top_img !== false && top_img != null
     - post_bg_img = `background:url('${top_img}');`
 
-header#page-header(class=`${isFullPage + headerClassName + isFixedClass}` style=post_bg_img)
+header#page-header(class=`${isFullPage + headerClassName + isFixedClass + isMarkBG}` style=post_bg_img)
   include ./nav.pug
   if top_img !== false
     if is_post()

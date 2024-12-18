@@ -386,8 +386,8 @@ beautify:
 font:
   global_font_size: null
   code_font_size: null
-  font_family: null
-  code_font_family: null
+  font_family: "Noto Sans CJK SC, Noto Sans CJK, sans-serif"
+  code_font_family: "Noto Sans CJK SC, Noto Sans CJK, sans-serif"
 blog_title_font:
   font_link: null
   font_family: null
@@ -491,6 +491,7 @@ css_prefix: true
 inject:
   head:
     - <link rel="stylesheet" href="/assets/css/index.css">
+    - <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
   bottom:
     - <script src="/assets/js/index.js"></script>
 CDN:
