@@ -1,4 +1,4 @@
-if theme.menu
+if theme.menu || theme.force_enable_sidebar
   #sidebar
     #menu-mask
     #sidebar-menus
@@ -16,3 +16,7 @@ if theme.menu
           .length-num= site.categories.length
 
       !=partial('includes/header/menu_item', {}, {cache: true})
+
+      //- todo: 实现菜单包含aside内容
+      //-if theme.aside.mobile
+        !=partial('includes/widget/index', {}, {cache: true})

@@ -17,6 +17,7 @@ nav#nav
         #search-button
           span.site-page.social-icon.search
             i.iconfont.fas.fa-search.fa-fw
-      #toggle-menu
-          span.site-page
-            i.iconfont.fas.fa-bars.fa-fw
+      if theme.menu || theme.force_enable_sidebar
+        #toggle-menu
+            span.site-page
+              i.iconfont.fas.fa-bars.fa-fw

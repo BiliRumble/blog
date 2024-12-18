@@ -115,6 +115,9 @@ if hexo-config('darkmode.enable') || hexo-config('display_mode') == 'dark'
     #aside-content .aside-list > .aside-list-item:not(:last-child)
       border-bottom: 1px dashed alpha(#FFFFFF, .1)
 
+    #aside-content .card-archives ul.card-archive-list > .card-archive-list-item a, #aside-content .card-categories ul.card-category-list > .card-category-list-item a
+      border: 1px dashed rgba(255, 255, 255, 0.1);
+
     // Gitalk
     #gitalk-container
       filter: brightness(.8)

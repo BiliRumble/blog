@@ -21,6 +21,9 @@ menu:
   #   Music: /music/ || fas fa-music
   #   Movie: /movies/ || fas fa-video
 
+# enable menu when dont't type anything in 'menu'
+force_enable_sidebar: false
+
 # --------------------------------------
 # Code块设置
 # --------------------------------------
@@ -140,8 +143,8 @@ post_meta:
 # default: top img - full screen, site info - middle
 # The position of site info, eg: 300px/300em/300rem/10%
 index_site_info_top:
-# The height of top_img, eg: 300px/300em/300rem
-index_top_img_height:
+# The height of top_img, eg: 300px/300em/300rem !!! it's Deprecated !!!
+# index_top_img_height:
 
 # 首页随机文章
 banner_random:
@@ -274,6 +277,7 @@ footer:
 aside:
   enable: true
   hide: false
+  mobile: true
   # Show the button to hide the aside in bottom right button
   button: true
   # Position: left / right
