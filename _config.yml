@@ -1,42 +1,30 @@
-# Hexo Configuration
-## Docs: https://hexo.io/docs/configuration.html
-## Source: https://github.com/hexojs/hexo/
-
-# 站点配置
 title: rumble's blog
 subtitle: ''
-description: 'rumble的博客'
+description: rumble的博客
 keywords: rumble的博客, rumble's blog, blog, 博客, rumble, bilirumble
 author: rumble
 language: zh-CN
-timezone: 'Asia/Shanghai'
-
-# URL
-## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
+timezone: Asia/Shanghai
 url: http://blog.rumbl.top
 permalink: posts/:abbrlink.html
-permalink_defaults:
+permalink_defaults: null
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: true # Set to false to remove trailing '.html' from permalinks
-
-# Directory
+  trailing_index: true
+  trailing_html: true
 source_dir: source
 public_dir: public
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
-i18n_dir: :lang
-skip_render:
-
-# Writing
-new_post_name: :title.md # File name of new posts
+i18n_dir: ':lang'
+skip_render: null
+new_post_name: ':title.md'
 default_layout: post
-titlecase: false # Transform title into titlecase
+titlecase: false
 external_link:
-  enable: true # Open external links in new tab
-  field: site # Apply to the whole site
+  enable: true
+  field: site
   exclude: ''
 filename_case: 0
 render_drafts: false
@@ -55,70 +43,37 @@ prismjs:
   preprocess: true
   line_number: true
   tab_replace: ''
-
-# Home page setting
-# path: Root path for your blogs index page. (default = '')
-# per_page: Posts displayed per page. (0 = disable pagination)
-# order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
   per_page: 10
-  order_by: -date
-
-# Category & Tag
+  order_by: '-date'
 default_category: uncategorized
-category_map:
-tag_map:
-
-# Metadata elements
-## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+category_map: null
+tag_map: null
 meta_generator: true
-
-# Date / Time format
-## Hexo uses Moment.js to parse and display date
-## You can customize the date format as defined in
-## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
-## updated_option supports 'mtime', 'date', 'empty'
-updated_option: 'mtime'
-
-# Pagination
-## Set per_page to 0 to disable pagination
+updated_option: mtime
 per_page: 10
 pagination_dir: page
-
-# Include / Exclude file(s)
-## include:/exclude: options only apply to the 'source/' folder
-include:
-exclude:
-ignore:
-
-# Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
+include: null
+exclude: null
+ignore: null
 theme: mora
-
-# Live2D设置
 live2d:
   enable: true
-
-## abbrlink config
 abbrlink:
-  alg: crc32      #support crc16(default) and crc32 进制
-  rep: hex        #support dec(default) and hex  算法
-  drafts: false   #(true)Process draft,(false)Do not process draft. false(default) 
-  ## Generate categories from directory-tree
-  ## depth: the max_depth of directory-tree you want to generate, should > 0
+  alg: crc32
+  rep: hex
+  drafts: false
   auto_category:
-     enable: true  #true(default)
-     depth:        #3(default)
-     over_write: false 
-  auto_title: false #enable auto title, it can auto fill the title by path
-  auto_date: false #enable auto date, it can auto fill the date by time today
-  force: false #enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink.
-
-sitemap:
+    enable: true
+    depth: null
+    over_write: false
+  auto_title: false
+  auto_date: false
+  force: false
+sitemap: null
 path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
@@ -127,28 +82,26 @@ nofollow:
   field: post
   exclude:
     - '*.rumbl.top'
-    - 'icp.gov.moe'
-
+    - icp.gov.moe
 deploy:
   - type: cjh_google_url_submitter
   - type: cjh_bing_url_submitter
   - type: cjh_baidu_url_submitter
-
 hexo_submit_urls_to_search_engine:
-  submit_condition: count #链接被提交的条件，可选值：count | period 现仅支持count
-  count: 10 # 提交最新的10个链接
-  period: 900 # 提交修改时间在 900 秒内的链接
-  google: 0 # 是否向Google提交，可选值：1 | 0（0：否；1：是）
-  bing: 1 # 是否向bing提交，可选值：1 | 0（0：否；1：是）
-  baidu: 0 # 是否向baidu提交，可选值：1 | 0（0：否；1：是）
-  txt_path: submit_urls.txt ## 文本文档名， 需要推送的链接会保存在此文本文档里
-  baidu_host: https://blog.rumbl.top ## 在百度站长平台中注册的域名
-  baidu_token: <DISABLE> ## 请注意这是您的秘钥， 所以请不要把它直接发布在公众仓库里!
-  bing_host: https://blog.rumbl.top ## 在bing站长平台中注册的域名
-  bing_token: <AUTO_PATCH> ## 请注意这是您的秘钥， 所以请不要把它直接发布在公众仓库里!
-  google_host: https://blog.rumbl.top ## 在google站长平台中注册的域名
-  google_key_file: Project.json #存放google key的json文件，放于网站根目录（与hexo _config.yml文件位置相同），请不要把json文件内容直接发布在公众仓库里!
-  google_proxy: http://127.0.0.1:8080 # 向谷歌提交网址所使用的系统 http 代理，填 0 不使用
-  replace: 0  # 是否替换链接中的部分字符串，可选值：1 | 0（0：否；1：是）
+  submit_condition: count
+  count: 10
+  period: 900
+  google: 0
+  bing: 1
+  baidu: 0
+  txt_path: submit_urls.txt
+  baidu_host: https://blog.rumbl.top
+  baidu_token: <DISABLE>
+  bing_host: https://blog.rumbl.top
+  bing_token: <PLEASE_FILL_VERCEL_ENV>
+  google_host: https://blog.rumbl.top
+  google_key_file: Project.json
+  google_proxy: http://127.0.0.1:8080
+  replace: 0
   find_what: <...>
   replace_with: <...>
