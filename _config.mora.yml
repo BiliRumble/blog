@@ -386,8 +386,8 @@ beautify:
 font:
   global_font_size: null
   code_font_size: null
-  font_family: "Noto Sans CJK SC, Noto Sans CJK, sans-serif"
-  code_font_family: "Noto Sans CJK SC, Noto Sans CJK, sans-serif"
+  font_family: "Noto Sans SC"
+  code_font_family: "Noto Sans SC"
 blog_title_font:
   font_link: null
   font_family: null
