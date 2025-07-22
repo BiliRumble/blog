@@ -496,7 +496,7 @@ inject:
     - <script src="/assets/js/index.js"></script>
 CDN:
   internal_provider: local
-  third_party_provider: jsdelivr
+  third_party_provider: cdnjs
   version: false
   custom_format: null
   option: null
@@ -512,6 +512,6 @@ wowjs:
     - class: card-widget
       style: animate__fadeIn
       duration: 1s
-  animate_css: https://cdn.staticfile.net/animate.css/4.1.1/animate.min.css
-  wow_js: https://cdn.staticfile.net/wow/1.1.2/wow.min.js
+  animate_css: https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css
+  wow_js: https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js
   wow_init_js: /assets/js/wow_init.js
